@@ -1,7 +1,7 @@
 package com.example.mdpproj;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         userDao.insert ( u );
     }
     public void registerUser(View view) {
-        Log.i("mvdev","Hello");
+        Intent intent = new Intent(view.getContext(), RegisterPage.class);
+        startActivity(intent);
     }
 }
