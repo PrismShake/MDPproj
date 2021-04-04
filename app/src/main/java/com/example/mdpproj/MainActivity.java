@@ -19,5 +19,6 @@ public class MainActivity extends AppCompatActivity {
     public void registerUser(View view) {
         Intent intent = new Intent(this,RegisterPage.class);
         startActivity(intent);
+        Log.i("mobdev","Hello");
     }
 }
