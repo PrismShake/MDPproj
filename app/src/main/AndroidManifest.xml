@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MDPproj">
-        <activity android:name=".messagePageTwo"></activity>
+        <activity android:name=".buddiesPage" />
+        <activity android:name=".messagePageTwo" />
         <activity android:name=".messagePageOne" />
         <activity android:name=".workoutsPage" />
         <activity android:name=".profilePage" />

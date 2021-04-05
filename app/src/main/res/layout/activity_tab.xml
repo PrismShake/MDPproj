@@ -1,113 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".tabActivity">-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="0dp"
     tools:context=".tabActivity">
 
-    <ImageView
-        android:id="@+id/profile"
-        android:layout_width="354dp"
-        android:layout_height="217dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="78dp"
-        android:layout_marginRight="78dp"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dash_tab_left" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/buddies"
-        android:layout_width="354dp"
-        android:layout_height="217dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="66dp"
-        android:layout_marginRight="66dp"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/workouts"
-        app:srcCompat="@drawable/dash_tab_left" />
+        <ImageView
+            android:id="@+id/workouts"
+            android:layout_width="354dp"
+            android:layout_height="217dp"
+            android:layout_marginStart="81dp"
+            android:layout_marginLeft="81dp"
+            android:layout_marginTop="28dp"
+            android:clickable="true"
+            android:onClick="openWorkouts"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile"
+            app:srcCompat="@drawable/dash_tab_right" />
 
-    <ImageView
-        android:id="@+id/workouts"
-        android:layout_width="354dp"
-        android:layout_height="217dp"
-        android:layout_marginStart="81dp"
-        android:layout_marginLeft="81dp"
-        android:layout_marginTop="28dp"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile"
-        app:srcCompat="@drawable/dash_tab_right" />
+        <ImageView
+            android:id="@+id/buddies"
+            android:layout_width="354dp"
+            android:layout_height="217dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="66dp"
+            android:layout_marginRight="66dp"
+            android:clickable="true"
+            android:onClick="openBuddies"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/workouts"
+            app:srcCompat="@drawable/dash_tab_left" />
 
-    <ImageView
-        android:id="@+id/messages"
-        android:layout_width="354dp"
-        android:layout_height="217dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="28dp"
-        android:clickable="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buddies"
-        app:srcCompat="@drawable/dash_tab_right" />
+        <ImageView
+            android:id="@+id/messages"
+            android:layout_width="354dp"
+            android:layout_height="217dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="28dp"
+            android:clickable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buddies"
+            app:srcCompat="@drawable/dash_tab_right" />
 
-    <TextView
-        android:id="@+id/profileView"
-        android:layout_width="144dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="68dp"
-        android:background="#00FFFFFF"
-        android:text="profile"
-        android:textSize="45"
-        app:layout_constraintEnd_toEndOf="@+id/profile"
-        app:layout_constraintHorizontal_bias="0.25"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/profile" />
+        <ImageView
+            android:id="@+id/profile"
+            android:layout_width="354dp"
+            android:layout_height="217dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="78dp"
+            android:layout_marginRight="78dp"
+            android:clickable="true"
+            android:onClick="openProfile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/dash_tab_left" />
 
-    <TextView
-        android:id="@+id/profileView2"
-        android:layout_width="193dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="68dp"
-        android:background="#00FFFFFF"
-        android:text="buddies"
-        android:textSize="45sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/buddies" />
+        <TextView
+            android:id="@+id/messageview"
+            android:layout_width="240dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="68dp"
+            android:background="#00FFFFFF"
+            android:onClick="openMessagesOne"
+            android:text="messages"
+            android:textSize="45sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/messages" />
 
-    <TextView
-        android:id="@+id/profileView4"
-        android:layout_width="240dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="68dp"
-        android:background="#00FFFFFF"
-        android:text="messages"
-        android:textSize="45sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/messages" />
+        <TextView
+            android:id="@+id/buddiesview"
+            android:layout_width="193dp"
+            android:layout_height="59dp"
+            android:layout_marginTop="68dp"
+            android:background="#00FFFFFF"
+            android:text="buddies"
+            android:textSize="45sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.262"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/buddies" />
 
-    <TextView
-        android:id="@+id/profileView3"
-        android:layout_width="193dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="68dp"
-        android:background="#00FFFFFF"
-        android:text="workouts"
-        android:textSize="45sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.76"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/workouts" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/workview"
+            android:layout_width="193dp"
+            android:layout_height="59dp"
+            android:layout_marginTop="68dp"
+            android:background="#00FFFFFF"
+            android:text="workouts"
+            android:textSize="45sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.76"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/workouts" />
+
+        <TextView
+            android:id="@+id/profileView"
+            android:layout_width="144dp"
+            android:layout_height="69dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="68dp"
+            android:background="#00FFFFFF"
+            android:text="profile"
+            android:textSize="45sp"
+            app:layout_constraintEnd_toEndOf="@+id/profile"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/profile" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+</ScrollView>
