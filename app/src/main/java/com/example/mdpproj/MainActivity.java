@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
     UserDao userDao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate ( savedInstanceState );
+        super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView ( R.layout.activity_main );
+        setContentView(R.layout.activity_main);
 
         usersTextView = findViewById(R.id.register);
         firstNameEditText = findViewById(R.id.username);
