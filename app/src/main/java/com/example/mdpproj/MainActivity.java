@@ -1,12 +1,19 @@
 package com.example.mdpproj;
 
+
 import android.content.Intent;
+
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+
+
+
 
 import com.example.mdpproj.db.AppDatabase;
 import com.example.mdpproj.db.User;
@@ -32,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         userDao = database.userDao();
     }
     public void saveUser(View view) {
+        Log.i ( "mdoev" , "saveUser: button clicked" );
         String firstName = firstNameEditText.getText ( ).toString ( );
         String lastName = lastNameEditText.getText ( ).toString ( );
 
@@ -39,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
         u.firstName = firstName;
         u.lastName = lastName;
         userDao.insert ( u );
+
+        Intent intent = new Intent(view.getContext(), tabActivity.class);
+        startActivity(intent);
     }
     public void registerUser(View view) {
         Intent intent = new Intent(view.getContext(), RegisterPage.class);
