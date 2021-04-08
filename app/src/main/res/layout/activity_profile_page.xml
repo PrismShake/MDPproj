@@ -46,7 +46,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.808"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/background"
             app:srcCompat="@drawable/mdp_prof_backg" />
@@ -80,6 +80,20 @@
             app:layout_constraintHorizontal_bias="0.098"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/background" />
+
+        <TextView
+            android:id="@+id/textOne3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="56dp"
+            android:layout_marginRight="56dp"
+            android:text="athletic:"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.154"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textOne" />
 
         <TextView
             android:id="@+id/textOne2"
@@ -178,12 +192,64 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="72dp"
             android:text="favorite workouts:"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.101"
+            app:layout_constraintHorizontal_bias="0.09"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textOne" />
+            app:layout_constraintTop_toBottomOf="@+id/textOne3" />
+
+        <CheckBox
+            android:id="@+id/checkyes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="12dp"
+            android:text="yes"
+            app:layout_constraintEnd_toStartOf="@+id/checkNo"
+            app:layout_constraintHorizontal_bias="0.313"
+            app:layout_constraintStart_toEndOf="@+id/textOne3"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPronouns" />
+
+        <CheckBox
+            android:id="@+id/checkNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="237dp"
+            android:layout_marginLeft="237dp"
+            android:layout_marginTop="12dp"
+            android:checked="false"
+            android:text="no"
+            android:textColorHighlight="#F3F3F3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/background"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPronouns" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="151dp"
+            android:layout_height="54dp"
+            android:fontFamily="sans-serif-condensed-light"
+            android:gravity="bottom"
+            android:text="hello"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp"
+            tools:layout_editor_absoluteX="33dp"
+            tools:layout_editor_absoluteY="96dp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="170dp"
+            android:layout_height="74dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="bottom"
+            android:text="Name"
+            android:textColor="#FFFFFF"
+            android:textSize="60sp"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="166dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
