@@ -1,135 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".profilePage">
+    android:padding="0dp"
+    tools:context=".tabActivity">
 
-    <ImageView
-        android:id="@+id/background"
-        android:layout_width="435dp"
-        android:layout_height="987dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mdp_buddies_back" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/profHolder"
-        android:layout_width="191dp"
-        android:layout_height="302dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/background"
-        app:srcCompat="@drawable/mdp_prof_backg" />
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="422dp"
+            android:layout_height="1001dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.545"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/mdp_buddies_back" />
 
-    <ImageView
-        android:id="@+id/profpic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        <EditText
+            android:id="@+id/editTextPronouns"
+            android:layout_width="192dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/editextblank"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:text="pronouns"
+            app:layout_constraintStart_toEndOf="@+id/textOne"
+            app:layout_constraintTop_toBottomOf="@+id/editTextAge" />
 
-    <TextView
-        android:id="@+id/textTwo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="332dp"
-        android:layout_marginEnd="324dp"
-        android:layout_marginRight="324dp"
-        android:text="age:"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/background" />
+        <ImageView
+            android:id="@+id/profHolder"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/background"
+            app:srcCompat="@drawable/mdp_prof_backg" />
 
-    <TextView
-        android:id="@+id/textOne"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="372dp"
-        android:text="pronouns:"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/background" />
+        <TextView
+            android:id="@+id/textTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="348dp"
+            android:layout_marginEnd="324dp"
+            android:layout_marginRight="324dp"
+            android:text="age:"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/background"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/background" />
 
-    <TextView
-        android:id="@+id/textOne2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="292dp"
-        android:layout_marginEnd="324dp"
-        android:layout_marginRight="324dp"
-        android:text="name:"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/background" />
+        <TextView
+            android:id="@+id/textOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="400dp"
+            android:layout_marginEnd="56dp"
+            android:layout_marginRight="56dp"
+            android:text="pronouns:"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.098"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/background" />
 
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="144dp"
-        android:layout_height="142dp"
-        android:layout_marginTop="580dp"
-        app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.797"
-        app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toTopOf="@+id/background"
-        app:srcCompat="@drawable/workoutpicked" />
+        <TextView
+            android:id="@+id/textOne2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="292dp"
+            android:layout_marginEnd="324dp"
+            android:layout_marginRight="324dp"
+            android:text="name:"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/background"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/background" />
 
-    <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="144dp"
-        android:layout_height="142dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="580dp"
-        android:adjustViewBounds="false"
-        android:cropToPadding="false"
-        android:scaleType="centerInside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/background"
-        app:srcCompat="@drawable/workoutpicked" />
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="144dp"
+            android:layout_height="142dp"
+            android:layout_marginTop="580dp"
+            app:layout_constraintEnd_toEndOf="@+id/background"
+            app:layout_constraintHorizontal_bias="0.797"
+            app:layout_constraintStart_toStartOf="@+id/background"
+            app:layout_constraintTop_toTopOf="@+id/background"
+            app:srcCompat="@drawable/workoutpicked" />
 
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="144dp"
-        android:layout_height="142dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView15"
-        app:srcCompat="@drawable/workoutpicked" />
+        <ImageView
+            android:id="@+id/imageView15"
+            android:layout_width="144dp"
+            android:layout_height="142dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginLeft="44dp"
+            android:layout_marginTop="580dp"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            android:scaleType="centerInside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/background"
+            app:srcCompat="@drawable/workoutpicked" />
 
-    <ImageView
-        android:id="@+id/imageView13"
-        android:layout_width="144dp"
-        android:layout_height="142dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.426"
-        app:layout_constraintStart_toEndOf="@+id/imageView14"
-        app:layout_constraintTop_toBottomOf="@+id/imageView12"
-        app:srcCompat="@drawable/workoutpicked" />
+        <ImageView
+            android:id="@+id/imageView14"
+            android:layout_width="144dp"
+            android:layout_height="142dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginLeft="44dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView15"
+            app:srcCompat="@drawable/workoutpicked" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="144dp"
+            android:layout_height="142dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.426"
+            app:layout_constraintStart_toEndOf="@+id/imageView14"
+            app:layout_constraintTop_toBottomOf="@+id/imageView12"
+            app:srcCompat="@drawable/workoutpicked" />
+
+        <EditText
+            android:id="@+id/editTextAge"
+            android:layout_width="192dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/editextblank"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:text="age"
+            app:layout_constraintStart_toEndOf="@+id/textTwo"
+            app:layout_constraintTop_toBottomOf="@+id/editTextName" />
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="192dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="52dp"
+            android:background="@drawable/editextblank"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:text="name"
+            app:layout_constraintStart_toEndOf="@+id/textOne2"
+            app:layout_constraintTop_toBottomOf="@+id/profHolder" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:text="favorite workouts:"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.101"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textOne" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+</ScrollView>
