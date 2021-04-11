@@ -10,7 +10,7 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.SeekBar;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,7 +24,7 @@ public class workoutsPage extends AppCompatActivity {
         alarmManager = (AlarmManager) getSystemService ( Context.ALARM_SERVICE );
     }
     public void doTask(View view) {
-        SeekBar taskView = findViewById ( R.id.multseekBar );
+        TextView taskView = findViewById ( R.id.rv );
         String task = taskView.getText().toString ();
 
         Log.i("appRem", "task"+task);
