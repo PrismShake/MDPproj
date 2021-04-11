@@ -14,16 +14,32 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="392dp"
-            android:layout_height="970dp"
+            android:layout_width="397dp"
+            android:layout_height="964dp"
+            android:layout_marginTop="8dp"
             android:orientation="vertical"
             android:paddingTop="0dp"
             android:scaleType="fitStart"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/mdp_buddies_back" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            tools:layout_editor_absoluteX="149dp"
+            tools:layout_editor_absoluteY="275dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="54dp"
+            tools:layout_editor_absoluteY="71dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

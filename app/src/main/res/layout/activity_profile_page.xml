@@ -15,10 +15,10 @@
             android:id="@+id/background"
             android:layout_width="420dp"
             android:layout_height="1010dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:scaleType="fitStart"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.444"
+            app:layout_constraintHorizontal_bias="0.555"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/mdp_buddies_back" />
