@@ -27,20 +27,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/mdp_buddies_back" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv"
-            android:layout_width="323dp"
-            android:layout_height="300dp"
-            android:layout_marginStart="38dp"
-            android:layout_marginLeft="38dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="36dp"
-            android:layout_marginRight="36dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.428"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/multseekBar" />
-
         <TextView
             android:id="@+id/setttextView2"
             android:layout_width="wrap_content"
@@ -57,12 +43,32 @@
             app:layout_constraintVertical_bias="0.103" />
 
         <EditText
+            android:id="@+id/taskText"
+            android:layout_width="301dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="61dp"
+            android:layout_marginEnd="101dp"
+            android:layout_marginRight="101dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/editextblank"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="task"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/editTextNumber"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.516"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <EditText
             android:id="@+id/editTextNumber"
             android:layout_width="302dp"
             android:layout_height="57dp"
             android:layout_marginStart="102dp"
             android:layout_marginLeft="102dp"
-            android:layout_marginTop="7dp"
             android:layout_marginEnd="99dp"
             android:layout_marginRight="99dp"
             android:background="@drawable/editextblank"
@@ -71,9 +77,9 @@
             android:hint="e.g. a number"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintHorizontal_bias="0.521"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rv" />
+            tools:layout_editor_absoluteY="227dp" />
 
         <Button
             android:id="@+id/submitbutton"
@@ -91,20 +97,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextNumber"
             tools:ignore="OnClick" />
-
-        <SeekBar
-            android:id="@+id/multseekBar"
-            android:layout_width="339dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginLeft="36dp"
-            android:layout_marginTop="172dp"
-            android:layout_marginEnd="36dp"
-            android:layout_marginRight="36dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/workouttextView"
