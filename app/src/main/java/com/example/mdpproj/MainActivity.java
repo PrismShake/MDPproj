@@ -10,11 +10,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-
-
-
-
 import com.example.mdpproj.db.AppDatabase;
 import com.example.mdpproj.db.User;
 import com.example.mdpproj.db.UserDao;
@@ -31,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
-        usersTextView = findViewById(R.id.register);
+      //  usersTextView = findViewById(R.id.register);
         firstNameEditText = findViewById(R.id.username);
         lastNameEditText = findViewById(R.id.password);
 
@@ -54,5 +49,6 @@ public class MainActivity extends AppCompatActivity {
     public void registerUser(View view) {
         Intent intent = new Intent(view.getContext(), RegisterPage.class);
         startActivity(intent);
+
     }
 }
