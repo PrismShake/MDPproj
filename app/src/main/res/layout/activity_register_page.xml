@@ -4,6 +4,193 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterPage">
+    android:background="@drawable/orange_gradient"
+    android:visibility="visible">
+    <androidx.cardview.widget.CardView
+        android:layout_width="400dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="204dp"
+        android:layout_marginBottom="227dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="55dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="41dp"
+                android:layout_marginLeft="41dp"
+                android:layout_marginTop="61dp"
+                android:layout_marginBottom="350dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/profile_icon_two" />
+
+            <EditText
+                android:id="@+id/editTextTextEmailAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="55dp"
+                android:layout_marginEnd="44dp"
+                android:layout_marginRight="44dp"
+                android:layout_marginBottom="352dp"
+                android:hint="Enter Email"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="55dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="41dp"
+                android:layout_marginLeft="41dp"
+                android:layout_marginTop="29dp"
+                android:layout_marginEnd="268dp"
+                android:layout_marginRight="268dp"
+                android:layout_marginBottom="280dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                app:srcCompat="@drawable/profile_icon_two" />
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginEnd="44dp"
+                android:layout_marginRight="44dp"
+                android:layout_marginBottom="280dp"
+                android:ems="10"
+                android:hint="Create Username"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView5"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="55dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="41dp"
+                android:layout_marginLeft="41dp"
+                android:layout_marginTop="29dp"
+                android:layout_marginEnd="268dp"
+                android:layout_marginRight="268dp"
+                android:layout_marginBottom="209dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView5"
+                app:srcCompat="@drawable/password_icon_two" />
+
+            <EditText
+                android:id="@+id/password2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="29dp"
+                android:layout_marginEnd="44dp"
+                android:layout_marginRight="44dp"
+                android:layout_marginBottom="205dp"
+                android:ems="10"
+                android:hint="Create Password"
+                android:inputType="textPassword"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView6"
+                app:layout_constraintTop_toBottomOf="@+id/username" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="55dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="41dp"
+                android:layout_marginLeft="41dp"
+                android:layout_marginTop="29dp"
+                android:layout_marginEnd="268dp"
+                android:layout_marginRight="268dp"
+                android:layout_marginBottom="139dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView6"
+                app:srcCompat="@drawable/password_icon_two" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="44dp"
+                android:layout_marginRight="44dp"
+                android:layout_marginBottom="136dp"
+                android:ems="10"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/password2" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="56dp"
+                android:layout_marginLeft="56dp"
+                android:layout_marginTop="31dp"
+                android:layout_marginEnd="62dp"
+                android:layout_marginRight="62dp"
+                android:clickable="true"
+                android:onClick="goToSignIn"
+                android:text="Already Have an Account? Sign In Here."
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/password" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="128dp"
+                android:layout_marginLeft="128dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="131dp"
+                android:layout_marginRight="131dp"
+                android:onClick="saveUser"
+                android:text="Register"
+                app:backgroundTint="#FF9800"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
