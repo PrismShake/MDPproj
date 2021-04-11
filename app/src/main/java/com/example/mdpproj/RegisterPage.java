@@ -1,9 +1,8 @@
 package com.example.mdpproj;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class RegisterPage extends AppCompatActivity {
 
@@ -13,4 +12,3 @@ public class RegisterPage extends AppCompatActivity {
         setContentView(R.layout.activity_register_page);
     }
 }
-
