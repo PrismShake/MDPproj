@@ -14,6 +14,11 @@ public class RegisterPage extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_register_page);
     }
+    public void gotToQuestionare(View view){
+        Intent intent = new Intent(view.getContext(), Questionare.class);
+        startActivity(intent);
+    }
+
     public void goToSignIn(View view) {
         Intent intent = new Intent(view.getContext(), MainActivity.class);
         startActivity(intent);

@@ -13,3 +13,4 @@ public class messagePageTwo extends AppCompatActivity {
         setContentView ( R.layout.activity_message_page_two );
     }
 }
+
