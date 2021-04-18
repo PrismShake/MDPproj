@@ -21,4 +21,10 @@ public interface UserDao {
 
     @Delete
     void delete(User user);
+
+    static String returnFirst(User user){
+        return(user.firstName);
+    }
+
+
 }
