@@ -22,9 +22,11 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
+
     //create objects
     EditText email, password;
     FirebaseAuth Auth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     /*
