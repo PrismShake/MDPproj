@@ -10,10 +10,13 @@ public class tabActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate ( savedInstanceState );
         getSupportActionBar().hide();
         setContentView ( R.layout.activity_tab );
+
     }
+
     public void openProfile(View view) {
         Intent intent = new Intent(view.getContext(), profilePage.class);
         startActivity(intent);

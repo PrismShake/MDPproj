@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.mdpproj.db.AppDatabase;
@@ -20,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
     EditText lastNameEditText;
     AppDatabase database;
     UserDao userDao;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         database = AppDatabase.getDatabase(this);
         userDao = database.userDao();
     }
+
     public void saveUser(View view) {
         Log.i ( "mdoev" , "saveUser: button clicked" );
         String firstName = firstNameEditText.getText ( ).toString ( );
@@ -45,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(view.getContext(), tabActivity.class);
         startActivity(intent);
+
+        Toast.makeText ( getApplicationContext (), "Hello"+ u.firstName , Toast.LENGTH_LONG );
     }
     public void registerUser(View view) {
         Intent intent = new Intent(view.getContext(), RegisterPage.class);

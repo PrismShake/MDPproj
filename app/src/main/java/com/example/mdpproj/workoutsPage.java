@@ -49,4 +49,9 @@ public class workoutsPage extends AppCompatActivity {
             alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime ( )+ timerInSec * 1000, alarmIntent);
         }
     }
+
+    public void viewWorks(View view) {
+        Intent intent = new Intent(view.getContext(), allWorks.class);
+        startActivity(intent);
+    }
 }
