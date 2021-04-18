@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,5 +40,10 @@ public class Questionare extends AppCompatActivity {
 
 
         recyclerView.setAdapter(questionare_adapter);
+    }
+
+    public void SubmitQuestionaire(View view) {
+        Intent intent = new Intent(view.getContext(),tabActivity.class);
+        startActivity(intent);
     }
 }

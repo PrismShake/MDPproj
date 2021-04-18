@@ -17,6 +17,7 @@
         android:layout_marginRight="162dp"
         android:layout_marginBottom="30dp"
         android:text="submit"
+        android:onClick="SubmitQuestionaire"
         app:backgroundTint="#FF9800"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
