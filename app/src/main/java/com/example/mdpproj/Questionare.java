@@ -29,7 +29,13 @@ public class Questionare extends AppCompatActivity {
         questionsList.add(new Questions(0,"What city do you live in?"));
         questionsList.add(new Questions(0,"What gym do you go to?"));
 
+        int imgs[] = {R.drawable.endurance,R.drawable.strength,R.drawable.flexibility,R.drawable.balance};
+        String texts[] = {"Endurance", "Strength", "Flexibility", "Balance"};
+
+        questionsList.add(new Questions(1,"What type of Workout?", imgs,texts));
+        questionsList.add(new Questions(0,"What is your motivation?"));
         Questionare_Adapter questionare_adapter= new Questionare_Adapter(questionsList);
+
 
         recyclerView.setAdapter(questionare_adapter);
     }

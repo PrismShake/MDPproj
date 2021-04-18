@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "563952342887",
+    "project_id": "cellular-codex-306121",
+    "storage_bucket": "cellular-codex-306121.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:563952342887:android:450ad4ef680d63780141c2",
+        "android_client_info": {
+          "package_name": "com.example.mdpproj"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "563952342887-a8o1eo0lbposcmoga86l38a7mhuro68i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBe2LN0gJt17RZ8xDHqe8BdBnz55A2Z2ZU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "563952342887-a8o1eo0lbposcmoga86l38a7mhuro68i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

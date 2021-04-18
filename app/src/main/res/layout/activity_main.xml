@@ -62,7 +62,7 @@
                 app:srcCompat="@drawable/profile_icon_two" />
 
             <EditText
-                android:id="@+id/username"
+                android:id="@+id/user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -109,7 +109,7 @@
                 android:inputType="textPassword"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView6"
-                app:layout_constraintTop_toBottomOf="@+id/username" />
+                app:layout_constraintTop_toBottomOf="@+id/user" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -121,7 +121,7 @@
                 android:layout_marginEnd="100dp"
                 android:layout_marginRight="100dp"
                 android:clickable="true"
-                android:onClick="registerUser"
+                android:onClick="GoToRegister"
                 android:text="No Account? Register Here"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -136,7 +136,7 @@
                 android:layout_marginTop="37dp"
                 android:layout_marginEnd="138dp"
                 android:layout_marginRight="138dp"
-                android:onClick="saveUser"
+                android:onClick="SignIn"
                 android:text="Login"
                 app:backgroundTint="#FF9800"
                 app:layout_constraintEnd_toEndOf="parent"
