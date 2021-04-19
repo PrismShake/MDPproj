@@ -17,15 +17,15 @@ public class Questionare extends AppCompatActivity {
 
     private RecyclerView rv;
     List<Questions> questionsList = new ArrayList<>();
-
+    Questionare_Adapter questionare_adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionare);
 
-        RecyclerView recyclerView = findViewById(R.id.questions_rv);
+        rv = findViewById(R.id.questions_rv);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
+        rv.setLayoutManager(layoutManager);
 
         questionsList.add(new Questions(0,"Full Name "));
         questionsList.add(new Questions(0, "Age "));
@@ -37,27 +37,35 @@ public class Questionare extends AppCompatActivity {
         int imgs[] = {R.drawable.endurance,R.drawable.strength,R.drawable.flexibility,R.drawable.balance};
         String texts[] = {"Endurance", "Strength", "Flexibility", "Balance"};
 
-        questionsList.add(new Questions(1,"What type of Workout?", imgs,texts));
+        questionsList.add(new Questions(0,"What type of Workout?"));
         questionsList.add(new Questions(0,"What is your motivation?"));
 
-        Questionare_Adapter questionare_adapter= new Questionare_Adapter(questionsList);
+        questionare_adapter= new Questionare_Adapter(questionsList);
 
-        recyclerView.setAdapter(questionare_adapter);
+        rv.setAdapter(questionare_adapter);
     }
 
     public void SubmitQuestionaire(View view) {
-/*
-        String[] answers = new String[questionsList.size()];
+
+       /* String[] answers = new String[questionsList.size()];
         for(int i = 0; i < answers.length;i++){
-            View v = rv.getChildAt(i);
-            EditText currentAnswer = (EditText) view.findViewById(R.id.answers);
-            String a = currentAnswer.getText().toString();
+            RecyclerView.ViewHolder v = rv.findViewHolderForAdapterPosition(i);
+            EditText currentAnswer = (EditText) v.itemView.findViewById(R.id.answers);
+            String a = "";
+            if(currentAnswer.getText() != null)
+                a += currentAnswer.getText().toString();
             answers[i] = a;
         }
 
         for(int i = 0; i < answers.length; i++){
             Log.i("Answers", answers[i]);
-        }*/
+        }*
+        */
+
+        String[] answers = questionare_adapter.getAnswersList();
+        for(int i = 0; i < answers.length;i++)
+            Log.i("Answers",answers[i]);
+
         Intent intent = new Intent(view.getContext(),tabActivity.class);
         startActivity(intent);
     }
