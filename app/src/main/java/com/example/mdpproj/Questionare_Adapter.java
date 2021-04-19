@@ -19,7 +19,7 @@ import static com.example.mdpproj.Questions.LayoutTwo;
 public class Questionare_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private List<Questions> questionsList;
 
-    public Questionare_Adapter(List<Questions> questionsList){
+    public Questionare_Adapter(List<Questions> questionsList ){
         this.questionsList = questionsList;
     }
 

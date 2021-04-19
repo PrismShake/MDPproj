@@ -19,6 +19,7 @@ public class Questions {
         this.question_text = text;
         this.img = img;
         this.texts = texts;
+        this.viewType = viewType;
     }
 
     public String getText(){
