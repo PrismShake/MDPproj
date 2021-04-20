@@ -9,6 +9,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.mdpproj.db.User;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +25,9 @@ public class Questionare extends AppCompatActivity {
     private RecyclerView rv;
     List<Questions> questionsList = new ArrayList<>();
     Questionare_Adapter questionare_adapter;
+    FirebaseUser user;
+    DatabaseReference mDatabase;
+    String Username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +36,9 @@ public class Questionare extends AppCompatActivity {
         rv = findViewById(R.id.questions_rv);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         rv.setLayoutManager(layoutManager);
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         questionsList.add(new Questions(0,"Full Name "));
         questionsList.add(new Questions(0, "Age "));
@@ -43,28 +56,22 @@ public class Questionare extends AppCompatActivity {
         questionare_adapter= new Questionare_Adapter(questionsList);
 
         rv.setAdapter(questionare_adapter);
+
+        Intent intent = getIntent();
+        Username = intent.getStringExtra("Username");
+        Log.i("Username", Username);
+
     }
 
     public void SubmitQuestionaire(View view) {
 
-       /* String[] answers = new String[questionsList.size()];
-        for(int i = 0; i < answers.length;i++){
-            RecyclerView.ViewHolder v = rv.findViewHolderForAdapterPosition(i);
-            EditText currentAnswer = (EditText) v.itemView.findViewById(R.id.answers);
-            String a = "";
-            if(currentAnswer.getText() != null)
-                a += currentAnswer.getText().toString();
-            answers[i] = a;
-        }
-
-        for(int i = 0; i < answers.length; i++){
-            Log.i("Answers", answers[i]);
-        }*
-        */
-
         String[] answers = questionare_adapter.getAnswersList();
         for(int i = 0; i < answers.length;i++)
             Log.i("Answers",answers[i]);
+
+        Users u = new Users(Username, user.getUid(),answers[0],answers[1],answers[2],answers[3],answers[4],answers[5],answers[6],answers[7]);
+
+        mDatabase.child("Users").push().setValue(u);
 
         Intent intent = new Intent(view.getContext(),tabActivity.class);
         startActivity(intent);

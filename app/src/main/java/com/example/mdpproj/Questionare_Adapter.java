@@ -19,16 +19,23 @@ import java.util.List;
 
 import static com.example.mdpproj.Questions.LayoutOne;
 import static com.example.mdpproj.Questions.LayoutTwo;
-
+/*
+   Desc: Represents the Adapter for the RecyclerView in the Activity Questionaire
+         Itegrates multiple types of Layout views representing diff kinds of questions
+ */
 public class Questionare_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+    //questions
     private List<Questions> questionsList;
+    //user responses
     private String[] answersList;
 
+    //constructor for adapter
     public Questionare_Adapter(List<Questions> questionsList ){
         this.questionsList = questionsList;
         this.answersList = new String[questionsList.size()];
     }
 
+    //returns the viewType of an item at a specific position in the RecyclerView
     @Override
     public int getItemViewType(int position){
        switch(questionsList.get(position).getViewType()) {
@@ -42,10 +49,13 @@ public class Questionare_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
        }
     }
 
+    //returns the user responses
+    //Used in the Questionaire class
     public String[] getAnswersList(){
         return this.answersList;
     }
 
+    //Class for the first Layout
     class LayoutOneViewHolder extends RecyclerView.ViewHolder{
 
         private TextView textView;

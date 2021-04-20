@@ -1,15 +1,14 @@
 package com.example.mdpproj;
 
 public class Users {
-    private String userName, mUid, full_name, pronouns, state, city, gym, workout, motivation;
-    int age;
+    private String userName, mUid, full_name, pronouns, state, city, gym, workout, motivation, age;
 
     public Users(){
 
     }
 
-    public Users(String userName, String mUid, String full_name, String pronouns, String state, String city, String gym, String workout, String motivation){
-        this.userName = userName;
+    public Users(String userName, String mUid, String full_name, String age, String pronouns, String state, String city, String gym, String workout, String motivation){
+        this.age = age;
         this.mUid = mUid;
         this.full_name = full_name;
         this.pronouns = pronouns;
@@ -18,6 +17,7 @@ public class Users {
         this.gym = gym;
         this.workout = workout;
         this.motivation = motivation;
+        this.userName = userName;
     }
 
     public String getUserName(){
@@ -47,7 +47,7 @@ public class Users {
     public String getMotivation(){
         return motivation;
     }
-    public void setAge(int age){
+    public void setAge(String age){
         this.age = age;
     }
     public void setCity(String city){

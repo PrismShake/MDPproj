@@ -23,6 +23,7 @@ public class RegisterPage extends AppCompatActivity {
     //create objects
     EditText username, email, password, confirm_password;
     FirebaseAuth Auth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +82,7 @@ public class RegisterPage extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "User created", Toast.LENGTH_SHORT).show();
                     Log.i("Login", "User created");
                     Intent intent = new Intent(view.getContext(), Questionare.class);
+                    intent.putExtra("Username",userName);
                     startActivity(intent);
 
                     //if task fails, application displays errors like bad formatting of email or if the email is already in use
@@ -90,6 +92,11 @@ public class RegisterPage extends AppCompatActivity {
                 }
             }
         });
+
+        /*Intent intent = new Intent(getApplicationContext(), Questionare.class);
+        intent.putExtra("Username",userName);
+        startActivity(intent);*/
+        Log.i("RegisterPage",userName);
 
 
 
