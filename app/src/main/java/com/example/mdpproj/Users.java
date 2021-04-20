@@ -20,6 +20,9 @@ public class Users {
         this.userName = userName;
     }
 
+    public String getAge(){
+        return age;
+    }
     public String getUserName(){
         return userName;
     }
