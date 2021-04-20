@@ -13,29 +13,15 @@
 
         <ImageView
             android:id="@+id/background"
-            android:layout_width="435dp"
-            android:layout_height="1006dp"
+            android:layout_width="426dp"
+            android:layout_height="1008dp"
             android:layout_marginTop="16dp"
             android:scaleType="fitStart"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.533"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/mdp_buddies_back" />
-
-        <EditText
-            android:id="@+id/Pronouns"
-            android:layout_width="192dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/editextblank"
-            android:ems="10"
-            android:gravity="center"
-            android:inputType="textPersonName"
-            android:text="pronouns"
-            app:layout_constraintStart_toEndOf="@+id/textOne"
-            app:layout_constraintTop_toBottomOf="@+id/Age" />
 
         <ImageView
             android:id="@+id/profHolder"
@@ -53,70 +39,22 @@
             app:srcCompat="@drawable/mdp_prof_backg" />
 
         <TextView
-            android:id="@+id/textTwo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
-            android:layout_marginLeft="45dp"
-            android:layout_marginTop="272dp"
-            android:layout_marginEnd="324dp"
-            android:layout_marginRight="324dp"
-            android:text="age:"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/background"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/background" />
-
-        <TextView
-            android:id="@+id/textOne"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="324dp"
-            android:layout_marginEnd="56dp"
-            android:layout_marginRight="56dp"
-            android:text="pronouns:"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.098"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/background" />
-
-        <TextView
             android:id="@+id/textOne3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="56dp"
-            android:layout_marginRight="56dp"
+            android:layout_marginStart="172dp"
+            android:layout_marginLeft="172dp"
+            android:layout_marginTop="160dp"
             android:text="athletic:"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.154"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textOne" />
-
-        <TextView
-            android:id="@+id/textOne2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
-            android:layout_marginLeft="45dp"
-            android:layout_marginTop="216dp"
-            android:layout_marginEnd="324dp"
-            android:layout_marginRight="324dp"
-            android:text="name:"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/background"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/background" />
 
         <ImageView
             android:id="@+id/imageView12"
             android:layout_width="144dp"
             android:layout_height="142dp"
-            android:layout_marginTop="504dp"
+            android:layout_marginTop="550dp"
             app:layout_constraintEnd_toEndOf="@+id/background"
             app:layout_constraintHorizontal_bias="0.793"
             app:layout_constraintStart_toStartOf="@+id/background"
@@ -129,7 +67,7 @@
             android:layout_height="142dp"
             android:layout_marginStart="44dp"
             android:layout_marginLeft="44dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="15dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView15"
             app:srcCompat="@drawable/workoutpicked" />
@@ -138,7 +76,7 @@
             android:id="@+id/imageView13"
             android:layout_width="144dp"
             android:layout_height="142dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.43"
             app:layout_constraintStart_toEndOf="@+id/imageView14"
@@ -147,11 +85,11 @@
 
         <EditText
             android:id="@+id/Age"
-            android:layout_width="192dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginLeft="36dp"
-            android:layout_marginTop="12dp"
+            android:layout_width="197dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/editextblank"
             android:ems="10"
             android:gravity="center"
@@ -160,13 +98,151 @@
             app:layout_constraintStart_toEndOf="@+id/textTwo"
             app:layout_constraintTop_toBottomOf="@+id/FullName" />
 
+        <TextView
+            android:id="@+id/textOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="308dp"
+            android:layout_marginEnd="56dp"
+            android:layout_marginRight="56dp"
+            android:text="pronouns:"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.254"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/background" />
+
+        <TextView
+            android:id="@+id/textOne4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="92dp"
+            android:layout_marginLeft="92dp"
+            android:layout_marginTop="435dp"
+            android:text="gym:"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/background" />
+
+        <TextView
+            android:id="@+id/textOne6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="390dp"
+            android:layout_marginEnd="56dp"
+            android:layout_marginRight="56dp"
+            android:text="city:"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.312"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/background" />
+
+        <TextView
+            android:id="@+id/textOne5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="350dp"
+            android:layout_marginEnd="56dp"
+            android:layout_marginRight="56dp"
+            android:text="state:"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.286"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/background" />
+
+        <TextView
+            android:id="@+id/textTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="96dp"
+            android:layout_marginLeft="96dp"
+            android:layout_marginTop="265dp"
+            android:text="age:"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/background" />
+
+        <TextView
+            android:id="@+id/textOne2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="84dp"
+            android:layout_marginLeft="84dp"
+            android:layout_marginTop="220dp"
+            android:text="name:"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/background" />
+
+        <EditText
+            android:id="@+id/Pronouns"
+            android:layout_width="191dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/editextblank"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:text="pronouns"
+            app:layout_constraintStart_toEndOf="@+id/textOne"
+            app:layout_constraintTop_toBottomOf="@+id/Age" />
+
+        <EditText
+            android:id="@+id/region"
+            android:layout_width="196dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/editextblank"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:text="city"
+            app:layout_constraintStart_toEndOf="@+id/textOne6"
+            app:layout_constraintTop_toBottomOf="@+id/region2" />
+
+        <EditText
+            android:id="@+id/region3"
+            android:layout_width="196dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/editextblank"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:text="gym"
+            app:layout_constraintStart_toEndOf="@+id/textOne4"
+            app:layout_constraintTop_toBottomOf="@+id/region" />
+
+        <EditText
+            android:id="@+id/region2"
+            android:layout_width="196dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/editextblank"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:text="state"
+            app:layout_constraintStart_toEndOf="@+id/textOne5"
+            app:layout_constraintTop_toBottomOf="@+id/Pronouns" />
+
         <EditText
             android:id="@+id/FullName"
-            android:layout_width="192dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="196dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/editextblank"
             android:ems="10"
             android:gravity="center"
@@ -179,36 +255,34 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="68dp"
+            android:layout_marginTop="536dp"
             android:text="favorite workouts:"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.09"
+            app:layout_constraintHorizontal_bias="0.073"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textOne3" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <CheckBox
             android:id="@+id/checkyes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="54dp"
+            android:layout_height="26dp"
+            android:layout_marginTop="152dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
             android:text="yes"
             app:layout_constraintEnd_toStartOf="@+id/checkNo"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textOne3"
             app:layout_constraintTop_toBottomOf="@+id/Pronouns" />
 
         <CheckBox
             android:id="@+id/checkNo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_width="54dp"
+            android:layout_height="23dp"
+            android:layout_marginTop="156dp"
             android:checked="false"
             android:text="no"
             android:textColorHighlight="#F3F3F3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.415"
+            app:layout_constraintHorizontal_bias="0.581"
             app:layout_constraintStart_toEndOf="@+id/textOne3"
             app:layout_constraintTop_toBottomOf="@+id/Pronouns" />
 
@@ -216,14 +290,14 @@
             android:id="@+id/textView6"
             android:layout_width="118dp"
             android:layout_height="53dp"
-            android:layout_marginTop="56dp"
+            android:layout_marginTop="40dp"
             android:fontFamily="sans-serif-condensed-light"
             android:gravity="bottom"
             android:text="hello"
             android:textColor="#FFFFFF"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.252"
+            app:layout_constraintHorizontal_bias="0.238"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/background" />
 
@@ -231,7 +305,7 @@
             android:id="@+id/uName"
             android:layout_width="170dp"
             android:layout_height="74dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="sans-serif-condensed"
             android:gravity="bottom"
             android:text="Name"
@@ -248,7 +322,7 @@
             android:layout_height="142dp"
             android:layout_marginStart="44dp"
             android:layout_marginLeft="44dp"
-            android:layout_marginTop="504dp"
+            android:layout_marginTop="550dp"
             android:adjustViewBounds="false"
             android:cropToPadding="false"
             android:scaleType="centerInside"
@@ -260,10 +334,10 @@
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="364dp"
+            android:layout_marginTop="920dp"
             android:text="save info"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.903"
+            app:layout_constraintHorizontal_bias="0.899"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/background" />
 
@@ -271,12 +345,12 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="Button"
+            android:layout_marginTop="920dp"
+            android:text="Logout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.858"
+            app:layout_constraintHorizontal_bias="0.069"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button4" />
+            app:layout_constraintTop_toTopOf="@+id/background" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
