@@ -14,12 +14,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterPage extends AppCompatActivity {
 
     //create objects
     EditText username, email, password, confirm_password;
     FirebaseAuth Auth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +70,9 @@ public class RegisterPage extends AppCompatActivity {
             return;
         }
 
-        //registers users into the firebase authentication table
+        /*C,reate a new createAccount method that takes in an email address and password, validates them,
+          and then creates a new user with the createUserWithEmailAndPassword method.
+         */
         Auth.createUserWithEmailAndPassword(Email,Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -75,8 +81,8 @@ public class RegisterPage extends AppCompatActivity {
                 if(task.isSuccessful()){
                     Toast.makeText(getApplicationContext(), "User created", Toast.LENGTH_SHORT).show();
                     Log.i("Login", "User created");
-
                     Intent intent = new Intent(view.getContext(), Questionare.class);
+                    intent.putExtra("Username",userName);
                     startActivity(intent);
 
                     //if task fails, application displays errors like bad formatting of email or if the email is already in use
@@ -86,6 +92,13 @@ public class RegisterPage extends AppCompatActivity {
                 }
             }
         });
+
+        /*Intent intent = new Intent(getApplicationContext(), Questionare.class);
+        intent.putExtra("Username",userName);
+        startActivity(intent);*/
+        Log.i("RegisterPage",userName);
+
+
 
     }
 

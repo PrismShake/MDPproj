@@ -1,9 +1,12 @@
 package com.example.mdpproj;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -11,18 +14,28 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.mdpproj.Questions.LayoutOne;
 import static com.example.mdpproj.Questions.LayoutTwo;
-
+/*
+   Desc: Represents the Adapter for the RecyclerView in the Activity Questionaire
+         Itegrates multiple types of Layout views representing diff kinds of questions
+ */
 public class Questionare_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+    //questions
     private List<Questions> questionsList;
+    //user responses
+    private String[] answersList;
 
-    public Questionare_Adapter(List<Questions> questionsList){
+    //constructor for adapter
+    public Questionare_Adapter(List<Questions> questionsList ){
         this.questionsList = questionsList;
+        this.answersList = new String[questionsList.size()];
     }
 
+    //returns the viewType of an item at a specific position in the RecyclerView
     @Override
     public int getItemViewType(int position){
        switch(questionsList.get(position).getViewType()) {
@@ -36,18 +49,44 @@ public class Questionare_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
        }
     }
 
+    //returns the user responses
+    //Used in the Questionaire class
+    public String[] getAnswersList(){
+        return this.answersList;
+    }
+
+    //Class for the first Layout
     class LayoutOneViewHolder extends RecyclerView.ViewHolder{
 
         private TextView textView;
         private LinearLayout linearLayout;
-
+        private EditText editText;
         public LayoutOneViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.questions);
+            editText = itemView.findViewById(R.id.answers);
             linearLayout = itemView.findViewById(R.id.lin_layout);
+            editText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    answersList[getAdapterPosition()] = charSequence.toString();
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+                    //answersList[getAdapterPosition()] = editable.toString();
+                }
+            });
+
         }
-        private void setView(String text){
+        private void setView(String text, int pos){
             textView.setText(text);
+
         }
     }
 
@@ -115,10 +154,13 @@ public class Questionare_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         if(questionsList.get(position).getViewType() == 0){
             String text = questionsList.get(position).getText();
+
             Log.i("Layouttwo","Whoop");
             //((LayoutOneViewHolder)holder).setView(text);
             LayoutOneViewHolder viewHolder = (LayoutOneViewHolder) holder;
-            viewHolder.setView(text);
+            viewHolder.textView.setText(text);
+            viewHolder.editText.setText(answersList[position]);
+            //viewHolder.setView(text,position);
 
         }else if(questionsList.get(position).getViewType() == 1){
             int[] images = questionsList.get(position).geticon();
