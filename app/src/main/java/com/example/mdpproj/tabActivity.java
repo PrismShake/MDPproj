@@ -38,4 +38,6 @@ public class tabActivity extends AppCompatActivity {
         Intent intent = new Intent(view.getContext(), messagePageTwo.class);
         startActivity(intent);
     }
+
+
 }

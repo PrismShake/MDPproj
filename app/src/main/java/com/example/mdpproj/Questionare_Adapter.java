@@ -66,6 +66,8 @@ public class Questionare_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
             textView = itemView.findViewById(R.id.questions);
             editText = itemView.findViewById(R.id.answers);
             linearLayout = itemView.findViewById(R.id.lin_layout);
+            //need a text change listener which essentially helps to
+            //obtain the content from the EditText in RecyclerView based off the position in the Adapter
             editText.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -172,6 +174,7 @@ public class Questionare_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
     }
 
+    //returns the number of items in the recycler view
     @Override
     public int getItemCount() {
         return questionsList.size();
