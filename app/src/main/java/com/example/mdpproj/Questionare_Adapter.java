@@ -14,7 +14,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.mdpproj.Questions.LayoutOne;
@@ -63,7 +62,7 @@ public class Questionare_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
         private EditText editText;
         public LayoutOneViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.questions);
+            textView = itemView.findViewById(R.id.buddy_name );
             editText = itemView.findViewById(R.id.answers);
             linearLayout = itemView.findViewById(R.id.lin_layout);
             //need a text change listener which essentially helps to
