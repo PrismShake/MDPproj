@@ -71,6 +71,7 @@ public class Questionare extends AppCompatActivity {
 
         Users u = new Users(Username, user.getUid(),answers[0],answers[1],answers[2],answers[3],answers[4],answers[5],answers[6],answers[7]);
 
+        //Push stuff into database
         mDatabase.child("Users").push().setValue(u);
 
         Intent intent = new Intent(view.getContext(),tabActivity.class);

@@ -1,5 +1,7 @@
 package com.example.mdpproj;
-
+/*
+    Desc: User class that represents the User entity in our Firebase Database
+ */
 public class Users {
     private String userName, mUid, full_name, pronouns, state, city, gym, workout, motivation, age;
 
@@ -7,6 +9,7 @@ public class Users {
 
     }
 
+    //constructor
     public Users(String userName, String mUid, String full_name, String age, String pronouns, String state, String city, String gym, String workout, String motivation){
         this.age = age;
         this.mUid = mUid;
@@ -20,6 +23,7 @@ public class Users {
         this.userName = userName;
     }
 
+    //getter methods
     public String getAge(){
         return age;
     }
@@ -50,6 +54,8 @@ public class Users {
     public String getMotivation(){
         return motivation;
     }
+
+    //setter methods
     public void setAge(String age){
         this.age = age;
     }
