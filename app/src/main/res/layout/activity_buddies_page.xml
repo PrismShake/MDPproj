@@ -4,11 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".buddiesPage">
+    tools:context=".buddiesPage"
+    android:id="@+id/frameLayout">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="156dp"
-        tools:layout_editor_absoluteY="204dp" />
+        android:layout_width="415dp"
+        android:layout_height="682dp"
+        android:layout_marginTop="29dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_conversion_absoluteHeight="529dp"
+        tools:layout_conversion_absoluteWidth="310dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
