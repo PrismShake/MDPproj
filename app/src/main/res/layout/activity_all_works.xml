@@ -22,25 +22,102 @@
             android:id="@+id/imageView38"
             android:layout_width="237dp"
             android:layout_height="247dp"
-            app:srcCompat="@drawable/workoutpicked"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="16dp" />
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="158dp"
+            android:layout_marginRight="158dp"
+            android:foreground="@drawable/backwork"
+            android:foregroundGravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/workoutpicked" />
 
         <ImageView
             android:id="@+id/imageView39"
             android:layout_width="237dp"
             android:layout_height="247dp"
-            app:srcCompat="@drawable/workoutpicked"
-            tools:layout_editor_absoluteX="158dp"
-            tools:layout_editor_absoluteY="330dp" />
+            android:layout_marginStart="158dp"
+            android:layout_marginLeft="158dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:foreground="@drawable/benchpressfree"
+            android:foregroundGravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView38"
+            app:srcCompat="@drawable/workoutpicked" />
 
         <ImageView
             android:id="@+id/imageView40"
             android:layout_width="237dp"
             android:layout_height="247dp"
-            app:srcCompat="@drawable/workoutpicked"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="610dp" />
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="158dp"
+            android:layout_marginRight="158dp"
+            android:foreground="@drawable/gymnastics"
+            android:foregroundGravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView39"
+            app:srcCompat="@drawable/workoutpicked" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="237dp"
+            android:layout_height="247dp"
+            android:layout_marginStart="158dp"
+            android:layout_marginLeft="158dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:foreground="@drawable/sittingcycle"
+            android:foregroundGravity="center"
+            android:hapticFeedbackEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView40"
+            app:srcCompat="@drawable/workoutpicked" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="237dp"
+            android:layout_height="247dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="158dp"
+            android:layout_marginRight="158dp"
+            android:foreground="@drawable/treadmill"
+            android:foregroundGravity="center"
+            android:hapticFeedbackEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView7"
+            app:srcCompat="@drawable/workoutpicked" />
+
+        <ImageView
+            android:id="@+id/imageView17"
+            android:layout_width="237dp"
+            android:layout_height="247dp"
+            android:layout_marginStart="158dp"
+            android:layout_marginLeft="158dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:foreground="@drawable/weight"
+            android:foregroundGravity="center"
+            android:hapticFeedbackEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView9"
+            app:srcCompat="@drawable/workoutpicked" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
 </ScrollView>
