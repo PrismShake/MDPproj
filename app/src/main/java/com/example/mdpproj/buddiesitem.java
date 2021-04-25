@@ -1,6 +1,8 @@
 package com.example.mdpproj;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,5 +24,10 @@ public class buddiesitem extends AppCompatActivity{
         personName.setText("Emma Wilson");
         personAge.setText("23 years old");
         personPhoto.setImageResource(R.drawable.mdp_prof_backg);
+    }
+
+    public void goBudProf(View view) {
+        Intent intent = new Intent(view.getContext(), buddiesProf.class);
+        startActivity(intent);
     }
 }
