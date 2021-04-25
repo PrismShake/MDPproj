@@ -1,6 +1,8 @@
 package com.example.mdpproj;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -59,4 +61,10 @@ public class buddiesPage extends AppCompatActivity {
 
 
         }
+
+
+    public void gobudProf(View view) {
+        Intent intent = new Intent(view.getContext(), buddiesProf.class);
+        startActivity(intent);
+    }
 }
