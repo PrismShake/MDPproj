@@ -1,6 +1,5 @@
 package com.example.mdpproj;
 
-import android.app.PendingIntent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -64,7 +63,7 @@ public class profilePage extends AppCompatActivity {
                     String Uid = u.getmUid();
                     Log.i("Snapshot",Uid);
                     //if the user in the User Node is the current user I take their info and update the profile
-                    if(Uid.equals(current_user_id)) {
+                    if(Uid.equals(current_user_id)) {  //
                         String user_name = u.getUserName();
                         uname.setText(user_name);
                         fullName.setText(u.getFull_name());

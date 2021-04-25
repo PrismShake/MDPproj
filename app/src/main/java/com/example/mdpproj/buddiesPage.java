@@ -2,43 +2,61 @@ package com.example.mdpproj;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class buddiesPage extends AppCompatActivity {
 
-    private List<Person> persons;
-    private RecyclerView rv;
+    RecyclerView recyclerView;
+    DatabaseReference database;
+    buddiesAdapter myAdapter;
+    ArrayList<Users> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_buddies_page);
 
-        rv=(RecyclerView)findViewById(R.id.rv);
+        recyclerView = findViewById(R.id.userList);
+        database = FirebaseDatabase.getInstance().getReference("Users");
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        rv.setLayoutManager(llm);
-        rv.setHasFixedSize(true);
+        list = new ArrayList<>();
+        myAdapter = new buddiesAdapter(this,list);
+        recyclerView.setAdapter(myAdapter);
 
-        initializeData();
-        initializeAdapter();
-    }
+        database.addValueEventListener(new ValueEventListener () {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-    private void initializeData(){
-        persons = new ArrayList<> ();
-        persons.add(new Person("Emma Wilson", "23 years old", R.drawable.mdp_prof_backg));
-        persons.add(new Person("Lavery Maiss", "25 years old", R.drawable.mdp_prof_backg));
-        persons.add(new Person("Lillie Watts", "35 years old", R.drawable.mdp_prof_backg));
-    }
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
 
-    private void initializeAdapter(){
-        buddiesAdapter adapter = new buddiesAdapter (persons);
-        rv.setAdapter(adapter);
-    }
+                    Users user = dataSnapshot.getValue(Users.class);
+                    list.add(user);
+
+
+                }
+                myAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+        }
 }
