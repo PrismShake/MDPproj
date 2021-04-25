@@ -1,61 +1,62 @@
 package com.example.mdpproj;
-
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.cardview.widget.CardView;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
+import java.util.ArrayList;
 
-public class buddiesAdapter extends RecyclerView.Adapter<buddiesAdapter.PersonViewHolder>{
+public class buddiesAdapter extends RecyclerView.Adapter<buddiesAdapter.MyViewHolder>{
 
-    public static class PersonViewHolder extends RecyclerView.ViewHolder {
+        Context context;
 
-        CardView cv;
-        TextView personName;
-        TextView personAge;
-        ImageView personPhoto;
+        ArrayList<Users> list;
 
-        PersonViewHolder(View itemView) {
-            super(itemView);
-            cv = (CardView)itemView.findViewById(R.id.cv);
-            personName = (TextView)itemView.findViewById(R.id.person_name);
-            personAge = (TextView)itemView.findViewById(R.id.person_age);
-            personPhoto = (ImageView)itemView.findViewById(R.id.person_photo);
+
+        public buddiesAdapter(Context context, ArrayList<Users> list) {
+            this.context = context;
+            this.list = list;
         }
-    }
 
-    List<Person> persons;
+        @NonNull
+        @Override
+        public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View v = LayoutInflater.from(context).inflate(R.layout.buddies_item,parent,false);
+            return  new MyViewHolder(v);
+        }
 
-    buddiesAdapter(List<Person> persons){
-        this.persons = persons;
-    }
+        @Override
+        public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-    @Override
-    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
-        super.onAttachedToRecyclerView(recyclerView);
-    }
+            Users user = list.get(position);
+            holder.firstName.setText(user.getFull_name ());
+//            holder.lastName.setText(user.getLastName());
+            holder.age.setText(user.getAge());
 
-    @Override
-    public PersonViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.buddies_view, viewGroup, false);
-        PersonViewHolder pvh = new PersonViewHolder(v);
-        return pvh;
-    }
 
-    @Override
-    public void onBindViewHolder(PersonViewHolder personViewHolder, int i) {
-        personViewHolder.personName.setText(persons.get(i).name);
-        personViewHolder.personAge.setText(persons.get(i).age);
-        personViewHolder.personPhoto.setImageResource(persons.get(i).photoId);
-    }
+        }
 
-    @Override
-    public int getItemCount() {
-        return persons.size();
+        @Override
+        public int getItemCount() {
+            return list.size();
+        }
+
+        public static class MyViewHolder extends RecyclerView.ViewHolder{
+
+            TextView firstName, lastName, age;
+
+            public MyViewHolder(@NonNull View itemView) {
+                super(itemView);
+
+                firstName = itemView.findViewById(R.id.tvfirstName);
+//                lastName = itemView.findViewById(R.id.tvlastName);
+                age = itemView.findViewById(R.id.tvage);
+
+            }
+        }
+
     }
-}
