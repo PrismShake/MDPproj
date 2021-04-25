@@ -17,13 +17,13 @@ public class buddiesitem extends AppCompatActivity{
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.buddies_view);
-        personName = (TextView)findViewById(R.id.person_name);
-        personAge = (TextView)findViewById(R.id.person_age);
-        personPhoto = (ImageView)findViewById(R.id.person_photo);
-
-        personName.setText("Emma Wilson");
-        personAge.setText("23 years old");
-        personPhoto.setImageResource(R.drawable.mdp_prof_backg);
+//        personName = (TextView)findViewById(R.id.person_name);
+//        personAge = (TextView)findViewById(R.id.person_age);
+//        personPhoto = (ImageView)findViewById(R.id.person_photo);
+//
+////        personName.setText("Emma Wilson");
+////        personAge.setText("23 years old");
+//        personPhoto.setImageResource(R.drawable.mdp_prof_backg);
     }
 
     public void goBudProf(View view) {
