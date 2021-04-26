@@ -83,12 +83,37 @@ public class profilePage extends AppCompatActivity {
 
         //where data is read from database and used to update the profile accordingly
         //based off the users response to the questionaire
+
+        //listens to whether get is successful or not
+        mRoot.child(current_user_id).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+            @Override
+
+            public void onSuccess(DataSnapshot dataSnapshot) {
+                Users u = dataSnapshot.getValue(Users.class);
+                String user_name = u.getUserName();
+                uname.setText(user_name);
+                fullName.setText(u.getFull_name());
+                age.setText(u.getAge());
+                pronouns.setText(u.getPronouns());
+                city.setText(u.getCity());
+                state.setText(u.getState());
+                workout.setText(u.getWorkout());
+                motivation.setText(u.getMotivation());
+                gym.setText(u.getGym());
+                //only be used loading local images
+                if((u.getProfilepic()!=null)&&(!u.getProfilepic().isEmpty()))
+                    Picasso.get().load(u.getProfilepic()).into(profileImageView);
+            }
+        });
+/*
+        //listening to all changes under particular node
         mRoot.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 //I go through each user in the node
                 for(DataSnapshot user: snapshot.getChildren()){
                     //Log.i("Snapshot",user.getValue().toString());
+
                     Users u = user.getValue(Users.class);
                     //I use a getter method from the Users.class
                     String Uid = u.getmUid();
@@ -105,8 +130,11 @@ public class profilePage extends AppCompatActivity {
                         workout.setText(u.getWorkout());
                         motivation.setText(u.getMotivation());
                         gym.setText(u.getGym());
-                        StorageReference s  = storage.getReference().child("images/" + current_user_id + ".jpg");
-                        profileImageView.setImageURI(Uri.parse(s.getName()));
+                        //only be used loading local images
+                        if((u.getProfilepic()!=null)&&(!u.getProfilepic().isEmpty()))
+                           Picasso.get().load(u.getProfilepic()).into(profileImageView);
+                        //StorageReference s  = storage.getReference().child("images/" + current_user_id + ".jpg");
+                       // profileImageView.setImageURI(Uri.parse(s.getName()));
 
                     }
                 }
@@ -117,6 +145,8 @@ public class profilePage extends AppCompatActivity {
 
             }
         });
+        */
+
     }
 
     private void choosePicture() {
@@ -145,6 +175,19 @@ public class profilePage extends AppCompatActivity {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         Snackbar.make(findViewById(android.R.id.content), "Image Uploaded", Snackbar.LENGTH_SHORT).show();
+                        //get url from Firebase Storage
+                        //riversRef.getDownloadUrl();
+                        taskSnapshot.getMetadata().getReference().getDownloadUrl()
+                                .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+                                        Log.i("mobdev", "Update message " + key + ": " + uri);
+                                        mRoot.child(key)
+                                                .child("profilepic")
+                                                .setValue(uri.toString());
+                                    }
+                                });
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
