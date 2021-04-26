@@ -3,7 +3,7 @@ package com.example.mdpproj;
     Desc: User class that represents the User entity in our Firebase Database
  */
 public class Users {
-    private String userName, mUid, full_name, pronouns, state, city, gym, workout, motivation, age;
+    private String userName, mUid, full_name, pronouns, state, city, gym, workout, motivation, age, profilepic;
 
     public Users(){
 
@@ -21,9 +21,11 @@ public class Users {
         this.workout = workout;
         this.motivation = motivation;
         this.userName = userName;
+
     }
 
     //getter methods
+    public String getProfilepic(){return profilepic;}
     public String getAge(){
         return age;
     }
@@ -54,8 +56,8 @@ public class Users {
     public String getMotivation(){
         return motivation;
     }
-
     //setter methods
+    public void setProfilepic(String pfp){this.profilepic = pfp;}
     public void setAge(String age){
         this.age = age;
     }
