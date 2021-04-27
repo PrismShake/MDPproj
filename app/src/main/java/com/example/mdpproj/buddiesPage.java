@@ -2,13 +2,16 @@ package com.example.mdpproj;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,15 +21,17 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class buddiesPage extends AppCompatActivity {
-
+    TextView fullName = findViewById(R.id.FullName);
+    String name = fullName.getText ().toString ();
     RecyclerView recyclerView;
     DatabaseReference database;
     buddiesAdapter myAdapter;
     ArrayList<Users> list;
-
+    String current_user_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_buddies_page);
 
         recyclerView = findViewById(R.id.userList);
@@ -38,15 +43,22 @@ public class buddiesPage extends AppCompatActivity {
         myAdapter = new buddiesAdapter(this,list);
         recyclerView.setAdapter(myAdapter);
 
+
         database.addValueEventListener(new ValueEventListener () {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Users u = dataSnapshot.getValue(Users.class);
+                    String Uid = u.getmUid();
+                    Log.i("Snapshot",Uid);
+                    if(!Uid.equals(current_user_id)) {
+                        Users user = dataSnapshot.getValue ( Users.class );
+                        list.add ( user );
 
-                    Users user = dataSnapshot.getValue(Users.class);
-                    list.add(user);
 
+                    }
 
                 }
                 myAdapter.notifyDataSetChanged();
@@ -64,7 +76,13 @@ public class buddiesPage extends AppCompatActivity {
 
 
     public void gobudProf(View view) {
+
         Intent intent = new Intent(view.getContext(), buddiesProf.class);
+        for(Users u : list){
+            if((u.getFull_name ()) == name){
+                intent.putExtra ( name, u.getFull_name () );
+            }
+        }
         startActivity(intent);
     }
 }

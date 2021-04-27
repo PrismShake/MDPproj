@@ -29,7 +29,7 @@ public class buddiesAdapter extends RecyclerView.Adapter<buddiesAdapter.MyViewHo
             return  new MyViewHolder(v);
         }
 
-        @Override
+        @Override //
         public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
             Users user = list.get(position);
@@ -44,6 +44,8 @@ public class buddiesAdapter extends RecyclerView.Adapter<buddiesAdapter.MyViewHo
         public int getItemCount() {
             return list.size();
         }
+
+        public ArrayList<Users> getUserList(){return this.list;}
 
         public static class MyViewHolder extends RecyclerView.ViewHolder{
 
