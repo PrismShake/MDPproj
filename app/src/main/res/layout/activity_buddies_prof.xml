@@ -142,16 +142,13 @@
 
         <TextView
             android:id="@+id/textView8"
-            android:layout_width="85dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="296dp"
-            android:layout_marginRight="296dp"
+            android:layout_width="92dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="28dp"
             android:text="Motivation"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -265,16 +262,13 @@
             android:id="@+id/Motivation"
             android:layout_width="200dp"
             android:layout_height="30dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginEnd="81dp"
-            android:layout_marginRight="81dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/editextblank"
             android:ems="10"
             android:gravity="center"
             android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/Workout" />
 
@@ -282,18 +276,14 @@
             android:id="@+id/Gym"
             android:layout_width="200dp"
             android:layout_height="30dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="81dp"
-            android:layout_marginRight="81dp"
             android:background="@drawable/editextblank"
             android:ems="10"
             android:gravity="center"
             android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textView8"
+            app:layout_constraintStart_toEndOf="@+id/textView9"
             app:layout_constraintTop_toBottomOf="@+id/Motivation" />
 
         <TextView
