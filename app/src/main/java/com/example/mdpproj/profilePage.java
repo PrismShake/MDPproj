@@ -84,7 +84,7 @@ public class profilePage extends AppCompatActivity {
         //where data is read from database and used to update the profile accordingly
         //based off the users response to the questionaire
 
-        //listens to whether get is successful or not
+        //listens to whether get() is successful or not
         mRoot.child(current_user_id).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
             @Override
 

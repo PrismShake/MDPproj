@@ -34,14 +34,14 @@ public class buddiesProf extends AppCompatActivity {
         gym = findViewById(R.id.Gym);
         mRoot = FirebaseDatabase.getInstance().getReference("Users");
         Intent intent = getIntent();
-        String currentDude = intent.getStringExtra("name");;
+        String currentDude = intent.getStringExtra("name");
 
 
         //where data is read from database and used to update the profile accordingly
         //based off the users response to the questionaire
 
         //listens to whether get is successful or not
-        mRoot.child(currentDude ).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot> () {
+        mRoot.child(currentDude).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot> () {
             @Override
 
             public void onSuccess(DataSnapshot dataSnapshot) {
