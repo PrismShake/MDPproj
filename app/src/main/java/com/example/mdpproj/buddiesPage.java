@@ -20,9 +20,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class buddiesPage extends AppCompatActivity {
-    TextView fullName = findViewById(R.id.FullName);
-    String name = fullName.getText ().toString ();
+public class buddiesPage extends AppCompatActivity implements buddiesAdapter.OnClick {
+    /*TextView fullName = findViewById(R.id.FullName);
+    String name = fullName.getText ().toString ();*/
     RecyclerView recyclerView;
     DatabaseReference database;
     buddiesAdapter myAdapter;
@@ -40,7 +40,7 @@ public class buddiesPage extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         list = new ArrayList<>();
-        myAdapter = new buddiesAdapter(this,list);
+        myAdapter = new buddiesAdapter(this,list,this);
         recyclerView.setAdapter(myAdapter);
 
 
@@ -56,10 +56,7 @@ public class buddiesPage extends AppCompatActivity {
                     if(!Uid.equals(current_user_id)) {
                         Users user = dataSnapshot.getValue ( Users.class );
                         list.add ( user );
-
-
                     }
-
                 }
                 myAdapter.notifyDataSetChanged();
 
@@ -74,15 +71,11 @@ public class buddiesPage extends AppCompatActivity {
 
         }
 
-
-    public void gobudProf(View view) {
-
-        Intent intent = new Intent(view.getContext(), buddiesProf.class);
-        for(Users u : list){
-            if((u.getFull_name ()) == name){
-                intent.putExtra ( name, u.getFull_name () );
-            }
-        }
+    @Override
+    public void OnClick(int position) {
+        list.get(position);
+        Intent intent = new Intent(this,buddiesProf.class);
+        intent.putExtra("name",list.get(position).getmUid());
         startActivity(intent);
     }
 }
