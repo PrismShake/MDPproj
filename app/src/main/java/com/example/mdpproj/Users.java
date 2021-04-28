@@ -1,9 +1,13 @@
 package com.example.mdpproj;
+
+import java.util.List;
+
 /*
     Desc: User class that represents the User entity in our Firebase Database
  */
 public class Users {
     private String userName, mUid, full_name, pronouns, state, city, gym, workout, motivation, age, profilepic;
+    private List<Users> buddies;
 
     public Users(){
 
@@ -24,7 +28,12 @@ public class Users {
 
     }
 
+    //other methods
+    public void addABuddy(Users buddy){buddies.add(buddy);}
+    public void removeABuddy(Users buddy){buddies.remove(buddy);}
+
     //getter methods
+    public List<Users> getBuddies(){return buddies;}
     public String getProfilepic(){return profilepic;}
     public String getAge(){
         return age;
