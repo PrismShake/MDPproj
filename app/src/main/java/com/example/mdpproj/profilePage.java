@@ -28,8 +28,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
-import java.io.File;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /*
@@ -67,7 +65,7 @@ public class profilePage extends AppCompatActivity {
         motivation = findViewById(R.id.Motivation);
         gym = findViewById(R.id.Gym);
 
-        profileImageView = findViewById(R.id.profHolder);
+        profileImageView = findViewById(R.id.prof);
         profileImageView.setOnClickListener(new View.OnClickListener(){
 
             @Override
