@@ -30,8 +30,8 @@
 
         <TextView
             android:id="@+id/uName"
-            android:layout_width="153dp"
-            android:layout_height="74dp"
+            android:layout_width="152dp"
+            android:layout_height="79dp"
             android:layout_marginStart="24dp"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="132dp"
@@ -39,6 +39,7 @@
             android:layout_marginRight="19dp"
             android:fontFamily="sans-serif-condensed"
             android:gravity="bottom"
+            android:padding="3dp"
             android:text="Name"
             android:textColor="#FFFFFF"
             android:textSize="40sp"
