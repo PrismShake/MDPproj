@@ -27,13 +27,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <TextView
             android:id="@+id/textView6"
             android:layout_width="118dp"
             android:layout_height="53dp"
             android:layout_marginStart="44dp"
             android:layout_marginLeft="44dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="100dp"
             android:layout_marginEnd="51dp"
             android:layout_marginRight="51dp"
             android:fontFamily="sans-serif-condensed-light"
@@ -42,9 +43,9 @@
             android:textColor="#FFFFFF"
             android:textSize="36sp"
             app:layout_constraintEnd_toStartOf="@+id/prof"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
         <TextView
             android:id="@+id/uName"
@@ -52,16 +53,16 @@
             android:layout_height="74dp"
             android:layout_marginStart="24dp"
             android:layout_marginLeft="24dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="19dp"
             android:layout_marginRight="19dp"
             android:fontFamily="sans-serif-condensed"
             android:gravity="bottom"
             android:text="Name"
             android:textColor="#FFFFFF"
-            android:textSize="60sp"
+            android:textSize="50sp"
             app:layout_constraintEnd_toStartOf="@+id/prof"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -161,6 +162,8 @@
             android:layout_marginStart="50dp"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="30dp"
+            android:layout_marginBottom="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView15"
             app:srcCompat="@drawable/workoutpicked" />
@@ -172,6 +175,8 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="50dp"
             android:layout_marginRight="50dp"
+            android:layout_marginBottom="39dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView12"
             app:srcCompat="@drawable/workoutpicked" />
@@ -443,9 +448,9 @@
             style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
             android:background="@android:color/holo_orange_dark"
             android:onClick="editProfile"
             android:text="Edit"

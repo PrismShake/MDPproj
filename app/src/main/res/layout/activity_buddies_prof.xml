@@ -41,7 +41,7 @@
             android:gravity="bottom"
             android:text="Name"
             android:textColor="#FFFFFF"
-            android:textSize="60sp"
+            android:textSize="40sp"
             app:layout_constraintEnd_toStartOf="@+id/prof"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -142,7 +142,7 @@
 
         <TextView
             android:id="@+id/textView8"
-            android:layout_width="92dp"
+            android:layout_width="110dp"
             android:layout_height="25dp"
             android:layout_marginStart="28dp"
             android:layout_marginLeft="28dp"
@@ -154,17 +154,13 @@
 
         <TextView
             android:id="@+id/textView9"
-            android:layout_width="85dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="296dp"
-            android:layout_marginRight="296dp"
+            android:layout_width="46dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="20dp"
             android:text="Gym"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -175,30 +171,10 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="50dp"
             android:layout_marginRight="50dp"
+            android:layout_marginBottom="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView10"
-            app:srcCompat="@drawable/workoutpicked" />
-
-        <ImageView
-            android:id="@+id/imageView14"
-            android:layout_width="144dp"
-            android:layout_height="142dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="30dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView15"
-            app:srcCompat="@drawable/workoutpicked" />
-
-        <ImageView
-            android:id="@+id/imageView13"
-            android:layout_width="144dp"
-            android:layout_height="142dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginRight="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView12"
             app:srcCompat="@drawable/workoutpicked" />
 
         <ImageView
@@ -208,9 +184,11 @@
             android:layout_marginStart="50dp"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="30dp"
+            android:layout_marginBottom="40dp"
             android:adjustViewBounds="false"
             android:cropToPadding="false"
             android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView10"
             app:srcCompat="@drawable/workoutpicked" />
