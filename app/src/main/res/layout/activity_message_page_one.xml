@@ -6,4 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".messagePageOne">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/matchedList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/mdp_buddies_back"
+        android:paddingLeft="30dp"
+        android:paddingTop="30dp"
+        android:paddingRight="30dp"
+        android:paddingBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

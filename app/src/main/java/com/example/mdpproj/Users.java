@@ -1,5 +1,6 @@
 package com.example.mdpproj;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -7,7 +8,7 @@ import java.util.List;
  */
 public class Users {
     private String userName, mUid, full_name, pronouns, state, city, gym, workout, motivation, age, profilepic;
-    private List<Users> buddies;
+    private List<String> buddies = new ArrayList<String>();
 
     public Users(){
 
@@ -29,11 +30,11 @@ public class Users {
     }
 
     //other methods
-    public void addABuddy(Users buddy){buddies.add(buddy);}
-    public void removeABuddy(Users buddy){buddies.remove(buddy);}
+    public void addABuddy(String buddy){buddies.add(buddy);}
+    public void removeABuddy(String buddy){buddies.remove(buddy);}
 
     //getter methods
-    public List<Users> getBuddies(){return buddies;}
+    public List<String> getBuddies(){return buddies;}
     public String getProfilepic(){return profilepic;}
     public String getAge(){
         return age;
