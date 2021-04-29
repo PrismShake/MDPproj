@@ -34,6 +34,8 @@ dependencies {
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.4.+'
     implementation 'de.hdodenhof:circleimageview:3.0.0'
     implementation 'com.google.firebase:firebase-storage:11.0.4'
+    implementation 'com.firebaseui:firebase-ui-auth:6.4.0'
+    implementation 'com.firebaseui:firebase-ui-database:7.1.1'
     implementation 'com.squareup.picasso:picasso:2.71828'
     // Import the BoM for the Firebase platform
     implementation platform('com.google.firebase:firebase-bom:27.0.0')

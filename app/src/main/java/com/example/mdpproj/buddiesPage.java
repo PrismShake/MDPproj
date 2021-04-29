@@ -3,8 +3,6 @@ package com.example.mdpproj;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -52,8 +50,10 @@ public class buddiesPage extends AppCompatActivity implements buddiesAdapter.OnC
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Users u = dataSnapshot.getValue(Users.class);
                     String Uid = u.getmUid();
-                    Log.i("Snapshot",Uid);
-                    if(!Uid.equals(current_user_id)) {
+                    if(Uid != null)
+                       Log.i("Snapshot",Uid);
+                    Log.i("Snapshot",current_user_id);
+                    if(Uid!=null && !Uid.equals(current_user_id)) {
                         Users user = dataSnapshot.getValue ( Users.class );
                         list.add ( user );
                     }
