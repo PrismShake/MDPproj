@@ -5,7 +5,6 @@
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
     android:clickable="true"
-    android:onClick="gobudProf"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp">
 

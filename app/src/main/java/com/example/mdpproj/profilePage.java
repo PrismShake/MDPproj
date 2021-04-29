@@ -28,8 +28,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
-import java.io.File;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /*
@@ -67,7 +65,7 @@ public class profilePage extends AppCompatActivity {
         motivation = findViewById(R.id.Motivation);
         gym = findViewById(R.id.Gym);
 
-        profileImageView = findViewById(R.id.profHolder);
+        profileImageView = findViewById(R.id.prof);
         profileImageView.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -84,7 +82,7 @@ public class profilePage extends AppCompatActivity {
         //where data is read from database and used to update the profile accordingly
         //based off the users response to the questionaire
 
-        //listens to whether get is successful or not
+        //listens to whether get() is successful or not
         mRoot.child(current_user_id).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
             @Override
 

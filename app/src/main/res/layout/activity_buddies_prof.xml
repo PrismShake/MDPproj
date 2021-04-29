@@ -14,7 +14,7 @@
 
 
         <ImageView
-            android:id="@+id/profHolder"
+            android:id="@+id/prof"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginStart="213dp"
@@ -42,7 +42,7 @@
             android:text="Name"
             android:textColor="#FFFFFF"
             android:textSize="60sp"
-            app:layout_constraintEnd_toStartOf="@+id/profHolder"
+            app:layout_constraintEnd_toStartOf="@+id/prof"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -422,8 +422,20 @@
             app:backgroundTint="@android:color/holo_orange_dark"
             app:layout_constraintBottom_toTopOf="@+id/view"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profHolder"
+            app:layout_constraintTop_toBottomOf="@+id/prof"
             app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/match"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="61dp"
+            android:layout_marginLeft="61dp"
+            android:layout_marginTop="66dp"
+            android:text="Match"
+            app:backgroundTint="#FF9800"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
