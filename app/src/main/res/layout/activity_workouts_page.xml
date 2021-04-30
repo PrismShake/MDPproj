@@ -170,7 +170,7 @@
                 android:clickable="true"
                 android:gravity="center"
                 android:onClick="viewWorks"
-                android:text="view workouts"
+                android:text="pick workouts"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
