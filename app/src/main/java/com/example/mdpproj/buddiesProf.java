@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,8 +19,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class buddiesProf extends AppCompatActivity {
     DatabaseReference mRoot;
@@ -47,7 +44,7 @@ public class buddiesProf extends AppCompatActivity {
         workout = findViewById(R.id.Workout);
         motivation = findViewById(R.id.Motivation);
         gym = findViewById(R.id.Gym);
-        profileImageView = findViewById(R.id.prof);
+        profileImageView = findViewById(R.id.buddyProf);
         mRoot = FirebaseDatabase.getInstance().getReference("Users");
         Intent intent = getIntent();
         String currentDude = intent.getStringExtra("name");

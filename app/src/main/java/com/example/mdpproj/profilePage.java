@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 public class profilePage extends AppCompatActivity {
 
+    ImageView wOne, wTwo, wThree, wFour;
     private CircleImageView profileImageView;
     TextView uname;
     EditText fullName, age, pronouns, state, city, workout, motivation, gym;
@@ -51,6 +53,10 @@ public class profilePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_profile_page);
+        wOne = (ImageView)findViewById ( R.id.wA) ;
+        wTwo= (ImageView)findViewById ( R.id.wB );
+        wThree = (ImageView)findViewById ( R.id.wC );
+        wFour= ( ImageView)findViewById ( R.id.wD );
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
@@ -64,6 +70,38 @@ public class profilePage extends AppCompatActivity {
         workout = findViewById(R.id.Workout);
         motivation = findViewById(R.id.Motivation);
         gym = findViewById(R.id.Gym);
+
+        Intent intent = getIntent ( );
+        String work;
+        Bundle bundle = intent.getExtras ();
+        if(bundle!=null) {
+            if ( bundle.containsKey ( "res" ) ) {
+//                bundle = intent.getBundleExtra ( "res" );
+                int resid = bundle.getInt ( "res" );
+                wOne.setImageResource ( resid );
+            } else if ( bundle.containsKey ( "bench" ) ) {
+//                bundle = intent.getBundleExtra ( "bench" );
+                int resid = bundle.getInt ( "bench" );
+                wTwo.setImageResource ( resid );
+            } else if ( bundle.containsKey ( "yoga" ) ) {
+//                bundle = intent.getBundleExtra ( "yoga" );
+                int resid = bundle.getInt ( "yoga" );
+                wThree.setImageResource ( resid );
+            } else if ( bundle.containsKey ( "free" ) ) {
+//                bundle = intent.getBundleExtra ( "free" );
+                int resid = bundle.getInt ( "free" );
+                wFour.setImageResource ( resid );
+            } else if ( bundle.containsKey ( "mill" ) ) {
+//                bundle = intent.getBundleExtra ( "mill" );
+                int resid = bundle.getInt ( "mill" );
+                wOne.setImageResource ( resid );
+            } else if ( bundle.containsKey ( "cyc" ) ) {
+//                bundle = intent.getBundleExtra ( "cyc" );
+                int resid = bundle.getInt ( "cyc" );
+                wOne.setImageResource ( resid );
+            }
+        }
+
 
         profileImageView = findViewById(R.id.prof);
         profileImageView.setOnClickListener(new View.OnClickListener(){
