@@ -1,5 +1,8 @@
 package com.example.mdpproj;
 
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,13 +12,14 @@ import java.util.List;
 public class Users {
     private String userName, mUid, full_name, pronouns, state, city, gym, workout, motivation, age, profilepic;
     private List<String> buddies = new ArrayList<String>();
+    private ImageView sOne, sTwo, sThree, sFour;
 
     public Users(){
 
     }
 
     //constructor
-    public Users(String userName, String mUid, String full_name, String age, String pronouns, String state, String city, String gym, String workout, String motivation){
+    public Users(String userName, String mUid, String full_name, String age, String pronouns, String state, String city, String gym, String workout, String motivation, ImageView One, ImageView Two, ImageView Three, ImageView Four){
         this.age = age;
         this.mUid = mUid;
         this.full_name = full_name;
@@ -26,6 +30,10 @@ public class Users {
         this.workout = workout;
         this.motivation = motivation;
         this.userName = userName;
+        this.sOne = One;
+        this.sTwo = Two;
+        this.sThree = Three;
+        this.sFour = Four;
 
     }
 
@@ -66,6 +74,10 @@ public class Users {
     public String getMotivation(){
         return motivation;
     }
+    public Drawable getOne(){return sOne.getDrawable ();}
+    public Drawable getTwo(){return sTwo.getDrawable ();}
+    public Drawable getThree(){return sThree.getDrawable ();}
+    public Drawable getFour(){return sFour.getDrawable ();}
     //setter methods
     public void setProfilepic(String pfp){this.profilepic = pfp;}
     public void setAge(String age){
@@ -92,5 +104,16 @@ public class Users {
     public void setWorkout(String workout){
         this.workout = workout;
     }
-
+    public void setOne(ImageView workout){
+        this.sOne = workout;
+    }
+    public void seTwo(ImageView workout){
+        this.sTwo = workout;
+    }
+    public void setThree(ImageView workout){
+        this.sThree = workout;
+    }
+    public void setFour(ImageView workout){
+        this.sFour = workout;
+    }
 }

@@ -6,14 +6,13 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class allWorks extends AppCompatActivity {
+public class pickworks extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
-        setContentView ( R.layout.activity_all_works );
+        setContentView ( R.layout.activity_pickworks );
     }
-
     public void resistanceMach(View view) {
         Intent a = new Intent (this, profilePage.class );
         a.putExtra("resWork", R.id.res);
@@ -49,6 +48,5 @@ public class allWorks extends AppCompatActivity {
         f.putExtra("cyc", R.id.bike);
         startActivity(f);
     }
-
 
 }

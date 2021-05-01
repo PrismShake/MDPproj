@@ -51,7 +51,7 @@ public class workoutsPage extends AppCompatActivity {
     }
 
     public void viewWorks(View view) {
-        Intent intent = new Intent(view.getContext(), allWorks.class);
+        Intent intent = new Intent(view.getContext(), pickworks.class);
         startActivity(intent);
     }
 }

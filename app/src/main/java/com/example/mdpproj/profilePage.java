@@ -53,10 +53,10 @@ public class profilePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_profile_page);
-        wOne = (ImageView)findViewById ( R.id.wA) ;
+        wOne = (ImageView)findViewById ( R.id.wB ) ;
         wTwo= (ImageView)findViewById ( R.id.wB );
         wThree = (ImageView)findViewById ( R.id.wC );
-        wFour= ( ImageView)findViewById ( R.id.wD );
+        wFour= ( ImageView)findViewById ( R.id.wc );
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
@@ -74,34 +74,6 @@ public class profilePage extends AppCompatActivity {
         Intent intent = getIntent ( );
         String work;
         Bundle bundle = intent.getExtras ();
-        if(bundle!=null) {
-            if ( bundle.containsKey ( "res" ) ) {
-//                bundle = intent.getBundleExtra ( "res" );
-                int resid = bundle.getInt ( "res" );
-                wOne.setImageResource ( resid );
-            } else if ( bundle.containsKey ( "bench" ) ) {
-//                bundle = intent.getBundleExtra ( "bench" );
-                int resid = bundle.getInt ( "bench" );
-                wTwo.setImageResource ( resid );
-            } else if ( bundle.containsKey ( "yoga" ) ) {
-//                bundle = intent.getBundleExtra ( "yoga" );
-                int resid = bundle.getInt ( "yoga" );
-                wThree.setImageResource ( resid );
-            } else if ( bundle.containsKey ( "free" ) ) {
-//                bundle = intent.getBundleExtra ( "free" );
-                int resid = bundle.getInt ( "free" );
-                wFour.setImageResource ( resid );
-            } else if ( bundle.containsKey ( "mill" ) ) {
-//                bundle = intent.getBundleExtra ( "mill" );
-                int resid = bundle.getInt ( "mill" );
-                wOne.setImageResource ( resid );
-            } else if ( bundle.containsKey ( "cyc" ) ) {
-//                bundle = intent.getBundleExtra ( "cyc" );
-                int resid = bundle.getInt ( "cyc" );
-                wOne.setImageResource ( resid );
-            }
-        }
-
 
         profileImageView = findViewById(R.id.prof);
         profileImageView.setOnClickListener(new View.OnClickListener(){
@@ -263,7 +235,7 @@ public class profilePage extends AppCompatActivity {
     public void updateProfile(View view) {
 
         mRoot.child(current_user_id).setValue(new Users(uname.getText().toString(), current_user_id, fullName.getText().toString(), age.getText().toString(),pronouns.getText().toString(),
-                state.getText().toString(),city.getText().toString(),gym.getText().toString(),workout.getText().toString(),motivation.getText().toString()));
+                state.getText().toString(),city.getText().toString(),gym.getText().toString(),workout.getText().toString(),motivation.getText().toString(), wOne.getDrawable (), wTwo.getDrawable (), wThree.getDrawable (), wFour.getDrawable ()));
         toggleEditTextAvailability(false);
         save.setVisibility(View.INVISIBLE);
     }
