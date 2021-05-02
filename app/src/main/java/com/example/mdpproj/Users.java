@@ -33,23 +33,23 @@ public class Users {
 
 
     }
-    public Users(String userName, String mUid, String full_name, String age, String pronouns, String state, String city, String gym, String workout, String motivation, ImageView One, ImageView Two, ImageView Three, ImageView Four){
-        this.age = age;
-        this.mUid = mUid;
-        this.full_name = full_name;
-        this.pronouns = pronouns;
-        this.state = state;
-        this.city = city;
-        this.gym = gym;
-        this.workout = workout;
-        this.motivation = motivation;
-        this.userName = userName;
-        this.sOne = One;
-        this.sTwo = Two;
-        this.sThree = Three;
-        this.sFour = Four;
-
-    }
+//    public Users(String userName, String mUid, String full_name, String age, String pronouns, String state, String city, String gym, String workout, String motivation, ImageView One, ImageView Two, ImageView Three, ImageView Four){
+//        this.age = age;
+//        this.mUid = mUid;
+//        this.full_name = full_name;
+//        this.pronouns = pronouns;
+//        this.state = state;
+//        this.city = city;
+//        this.gym = gym;
+//        this.workout = workout;
+//        this.motivation = motivation;
+//        this.userName = userName;
+//        this.sOne = One;
+//        this.sTwo = Two;
+//        this.sThree = Three;
+//        this.sFour = Four;
+//
+//    }
 
     //other methods
     public void addABuddy(String buddy){buddies.add(buddy);}

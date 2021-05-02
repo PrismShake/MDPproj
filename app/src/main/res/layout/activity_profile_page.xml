@@ -145,7 +145,7 @@
             app:layout_constraintTop_toBottomOf="@+id/view" />
 
         <ImageView
-            android:id="@+id/wB"
+            android:id="@+id/B"
             android:layout_width="144dp"
             android:layout_height="142dp"
             android:layout_marginTop="30dp"
@@ -156,41 +156,41 @@
             app:srcCompat="@drawable/workoutpicked" />
 
         <ImageView
-            android:id="@+id/wB"
+            android:id="@+id/A"
             android:layout_width="144dp"
             android:layout_height="142dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginStart="47dp"
+            android:layout_marginLeft="47dp"
             android:layout_marginTop="30dp"
-            android:layout_marginBottom="40dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/wc"
+            app:layout_constraintTop_toBottomOf="@+id/textView10"
             app:srcCompat="@drawable/workoutpicked" />
 
         <ImageView
-            android:id="@+id/wC"
+            android:id="@+id/D"
             android:layout_width="144dp"
             android:layout_height="142dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="39dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="52dp"
+            android:layout_marginRight="52dp"
+            android:layout_marginBottom="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/wB"
+            app:layout_constraintTop_toBottomOf="@+id/B"
             app:srcCompat="@drawable/workoutpicked" />
 
         <ImageView
-            android:id="@+id/wc"
+            android:id="@+id/C"
             android:layout_width="137dp"
             android:layout_height="141dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="172dp"
+            android:layout_marginBottom="30dp"
             android:adjustViewBounds="false"
             android:cropToPadding="false"
             android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView10"
             app:srcCompat="@drawable/workoutpicked" />
