@@ -2,6 +2,7 @@ package com.example.mdpproj;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -71,9 +73,6 @@ public class profilePage extends AppCompatActivity {
         motivation = findViewById(R.id.Motivation);
         gym = findViewById(R.id.Gym);
 
-        Intent intent = getIntent ( );
-        String work;
-        Bundle bundle = intent.getExtras ();
 
         profileImageView = findViewById(R.id.prof);
         profileImageView.setOnClickListener(new View.OnClickListener(){
@@ -94,6 +93,7 @@ public class profilePage extends AppCompatActivity {
 
         //listens to whether get() is successful or not
         mRoot.child(current_user_id).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
 
             public void onSuccess(DataSnapshot dataSnapshot) {
@@ -108,6 +108,10 @@ public class profilePage extends AppCompatActivity {
                 workout.setText(u.getWorkout());
                 motivation.setText(u.getMotivation());
                 gym.setText(u.getGym());
+                wOne.setForeground ( u.getOne () );
+                wTwo.setForeground ( u.getTwo () );
+                wThree.setForeground ( u.getThree () );
+                wFour.setForeground ( u.getFour () );
                 //only be used loading local images
                 if((u.getProfilepic()!=null)&&(!u.getProfilepic().isEmpty()))
                     Picasso.get().load(u.getProfilepic()).into(profileImageView);
@@ -235,7 +239,7 @@ public class profilePage extends AppCompatActivity {
     public void updateProfile(View view) {
 
         mRoot.child(current_user_id).setValue(new Users(uname.getText().toString(), current_user_id, fullName.getText().toString(), age.getText().toString(),pronouns.getText().toString(),
-                state.getText().toString(),city.getText().toString(),gym.getText().toString(),workout.getText().toString(),motivation.getText().toString(), wOne.getDrawable (), wTwo.getDrawable (), wThree.getDrawable (), wFour.getDrawable ()));
+                state.getText().toString(),city.getText().toString(),gym.getText().toString(),workout.getText().toString(),motivation.getText().toString(), wOne, wTwo, wThree, wFour));
         toggleEditTextAvailability(false);
         save.setVisibility(View.INVISIBLE);
     }

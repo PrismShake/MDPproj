@@ -19,6 +19,20 @@ public class Users {
     }
 
     //constructor
+    public Users(String userName, String mUid, String full_name, String age, String pronouns, String state, String city, String gym, String workout, String motivation){
+        this.age = age;
+        this.mUid = mUid;
+        this.full_name = full_name;
+        this.pronouns = pronouns;
+        this.state = state;
+        this.city = city;
+        this.gym = gym;
+        this.workout = workout;
+        this.motivation = motivation;
+        this.userName = userName;
+
+
+    }
     public Users(String userName, String mUid, String full_name, String age, String pronouns, String state, String city, String gym, String workout, String motivation, ImageView One, ImageView Two, ImageView Three, ImageView Four){
         this.age = age;
         this.mUid = mUid;
@@ -107,7 +121,7 @@ public class Users {
     public void setOne(ImageView workout){
         this.sOne = workout;
     }
-    public void seTwo(ImageView workout){
+    public void setTwo(ImageView workout){
         this.sTwo = workout;
     }
     public void setThree(ImageView workout){
