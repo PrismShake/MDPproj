@@ -1,16 +1,12 @@
 package com.example.mdpproj;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -30,7 +26,7 @@ public class pickworks extends AppCompatActivity {
 
         res = (ImageView)findViewById ( R.id.res ) ;
         tred= (ImageView)findViewById ( R.id.tread );
-         bike= (ImageView)findViewById ( R.id.bike );
+        bike= (ImageView)findViewById ( R.id.bike );
         yoga= ( ImageView)findViewById ( R.id.yog );
         bench = (ImageView)findViewById ( R.id.bench );
         free = (ImageView)findViewById ( R.id.bell ) ;
@@ -43,86 +39,86 @@ public class pickworks extends AppCompatActivity {
 
     }
     public void resistanceMach(View view) {
-        mRoot.child(current_user_id).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot> () {
-            @RequiresApi(api = Build.VERSION_CODES.M)
-            @Override
-
-            public void onSuccess(DataSnapshot dataSnapshot) {
-                Users u = dataSnapshot.getValue(Users.class);
-
-                u.setOne ( res );
-
-            }
-        });
+//        mRoot.child(current_user_id).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot> () {
+//            @RequiresApi(api = Build.VERSION_CODES.M)
+//            @Override
+//
+//            public void onSuccess(DataSnapshot dataSnapshot) {
+//                Users u = dataSnapshot.getValue(Users.class);
+//
+//                u.setOne ( res );
+//
+//            }
+//        });
     }
 
     public void benchPress(View view) {
-        mRoot.child(current_user_id).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot> () {
-            @RequiresApi(api = Build.VERSION_CODES.M)
-            @Override
-
-            public void onSuccess(DataSnapshot dataSnapshot) {
-                Users u = dataSnapshot.getValue(Users.class);
-
-                u.setTwo ( bench );
-
-            }
-        });
+//        mRoot.child(current_user_id).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot> () {
+//            @RequiresApi(api = Build.VERSION_CODES.M)
+//            @Override
+//
+//            public void onSuccess(DataSnapshot dataSnapshot) {
+//                Users u = dataSnapshot.getValue(Users.class);
+//
+//                u.setTwo ( bench );
+//
+//            }
+//        });
     }
 
     public void yoga(View view) {
-        mRoot.child(current_user_id).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot> () {
-            @RequiresApi(api = Build.VERSION_CODES.M)
-            @Override
-
-            public void onSuccess(DataSnapshot dataSnapshot) {
-                Users u = dataSnapshot.getValue(Users.class);
-
-                u.setThree ( yoga );
-
-            }
-        });
+//        mRoot.child(current_user_id).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot> () {
+//            @RequiresApi(api = Build.VERSION_CODES.M)
+//            @Override
+//
+//            public void onSuccess(DataSnapshot dataSnapshot) {
+//                Users u = dataSnapshot.getValue(Users.class);
+//
+//                u.setThree ( yoga );
+//
+//            }
+//        });
     }
 
     public void freeWeights(View view) {
-        mRoot.child(current_user_id).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot> () {
-            @RequiresApi(api = Build.VERSION_CODES.M)
-            @Override
-
-            public void onSuccess(DataSnapshot dataSnapshot) {
-                Users u = dataSnapshot.getValue(Users.class);
-
-                u.setFour ( free );
-
-            }
-        });
+//        mRoot.child(current_user_id).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot> () {
+//            @RequiresApi(api = Build.VERSION_CODES.M)
+//            @Override
+//
+//            public void onSuccess(DataSnapshot dataSnapshot) {
+//                Users u = dataSnapshot.getValue(Users.class);
+//
+//                u.setFour ( free );
+//
+//            }
+//        });
     }
 
     public void treadmill(View view) {
-        mRoot.child(current_user_id).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot> () {
-            @RequiresApi(api = Build.VERSION_CODES.M)
-            @Override
-
-            public void onSuccess(DataSnapshot dataSnapshot) {
-                Users u = dataSnapshot.getValue(Users.class);
-
-                u.setOne ( tred );
-
-            }
-        });
+//        mRoot.child(current_user_id).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot> () {
+//            @RequiresApi(api = Build.VERSION_CODES.M)
+//            @Override
+//
+//            public void onSuccess(DataSnapshot dataSnapshot) {
+//                Users u = dataSnapshot.getValue(Users.class);
+//
+//                u.setOne ( tred );
+//
+//            }
+//        });
     }
 
     public void cycling(View view) {
-        mRoot.child(current_user_id).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot> () {
-            @RequiresApi(api = Build.VERSION_CODES.M)
-            @Override
-            public void onSuccess(DataSnapshot dataSnapshot) {
-                Users u = dataSnapshot.getValue(Users.class);
-
-                u.setTwo ( bike );
-
-            }
-        });
+//        mRoot.child(current_user_id).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot> () {
+//            @RequiresApi(api = Build.VERSION_CODES.M)
+//            @Override
+//            public void onSuccess(DataSnapshot dataSnapshot) {
+//                Users u = dataSnapshot.getValue(Users.class);
+//
+//                u.setTwo ( bike );
+//
+//            }
+//        });
     }
 
 }

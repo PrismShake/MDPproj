@@ -166,7 +166,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
         <ImageView
-            android:id="@+id/wB"
+            android:id="@+id/B"
             android:layout_width="144dp"
             android:layout_height="142dp"
             android:layout_marginTop="30dp"
@@ -180,7 +180,7 @@
             app:srcCompat="@drawable/workoutpicked" />
 
         <ImageView
-            android:id="@+id/wD"
+            android:id="@+id/D"
             android:layout_width="144dp"
             android:layout_height="142dp"
             android:layout_marginTop="192dp"
@@ -193,7 +193,7 @@
             app:srcCompat="@drawable/workoutpicked" />
 
         <ImageView
-            android:id="@+id/wc"
+            android:id="@+id/C"
             android:layout_width="137dp"
             android:layout_height="141dp"
             android:layout_marginStart="56dp"
@@ -210,7 +210,7 @@
             app:srcCompat="@drawable/workoutpicked" />
 
         <ImageView
-            android:id="@+id/wA"
+            android:id="@+id/C"
             android:layout_width="137dp"
             android:layout_height="141dp"
             android:layout_marginStart="56dp"
