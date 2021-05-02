@@ -145,7 +145,7 @@
             app:layout_constraintTop_toBottomOf="@+id/view" />
 
         <ImageView
-            android:id="@+id/wA"
+            android:id="@+id/wB"
             android:layout_width="144dp"
             android:layout_height="142dp"
             android:layout_marginTop="30dp"
@@ -165,7 +165,7 @@
             android:layout_marginBottom="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/wD"
+            app:layout_constraintTop_toBottomOf="@+id/wc"
             app:srcCompat="@drawable/workoutpicked" />
 
         <ImageView
@@ -178,11 +178,11 @@
             android:layout_marginBottom="39dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/wA"
+            app:layout_constraintTop_toBottomOf="@+id/wB"
             app:srcCompat="@drawable/workoutpicked" />
 
         <ImageView
-            android:id="@+id/wD"
+            android:id="@+id/wc"
             android:layout_width="137dp"
             android:layout_height="141dp"
             android:layout_marginStart="50dp"
