@@ -16,7 +16,7 @@ public class tabActivity extends AppCompatActivity {
         setContentView ( R.layout.activity_tab );
 
     }
-
+    //these are all click events where intents are are started, used for navigation
     public void openProfile(View view) {
         Intent intent = new Intent(view.getContext(), profilePage.class);
         startActivity(intent);
