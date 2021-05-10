@@ -55,10 +55,10 @@ public class profilePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_profile_page);
-        wOne = (ImageView)findViewById ( R.id.A ) ;
-        wTwo= (ImageView)findViewById ( R.id.B );
-        wThree = (ImageView)findViewById ( R.id.C );
-        wFour= ( ImageView)findViewById ( R.id.D );
+        wOne = (ImageView)findViewById ( R.id.wB ) ;
+        wTwo= (ImageView)findViewById ( R.id.wB );
+        wThree = (ImageView)findViewById ( R.id.wC );
+        wFour= ( ImageView)findViewById ( R.id.wc );
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
@@ -108,10 +108,10 @@ public class profilePage extends AppCompatActivity {
                 workout.setText(u.getWorkout());
                 motivation.setText(u.getMotivation());
                 gym.setText(u.getGym());
-//                wOne.setForeground ( u.getOne () );
-//                wTwo.setForeground ( u.getTwo () );
-//                wThree.setForeground ( u.getThree () );
-//                wFour.setForeground ( u.getFour () );
+/*                wOne.setForeground ( u.getOne () );
+                wTwo.setForeground ( u.getTwo () );
+                wThree.setForeground ( u.getThree () );
+                wFour.setForeground ( u.getFour () );*/
                 //only be used loading local images
                 if((u.getProfilepic()!=null)&&(!u.getProfilepic().isEmpty()))
                     Picasso.get().load(u.getProfilepic()).into(profileImageView);

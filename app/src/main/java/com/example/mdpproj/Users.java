@@ -30,26 +30,25 @@ public class Users {
         this.workout = workout;
         this.motivation = motivation;
         this.userName = userName;
-
-
+        this.profilepic = "default";
     }
-//    public Users(String userName, String mUid, String full_name, String age, String pronouns, String state, String city, String gym, String workout, String motivation, ImageView One, ImageView Two, ImageView Three, ImageView Four){
-//        this.age = age;
-//        this.mUid = mUid;
-//        this.full_name = full_name;
-//        this.pronouns = pronouns;
-//        this.state = state;
-//        this.city = city;
-//        this.gym = gym;
-//        this.workout = workout;
-//        this.motivation = motivation;
-//        this.userName = userName;
-//        this.sOne = One;
-//        this.sTwo = Two;
-//        this.sThree = Three;
-//        this.sFour = Four;
-//
-//    }
+   /* public Users(String userName, String mUid, String full_name, String age, String pronouns, String state, String city, String gym, String workout, String motivation, ImageView One, ImageView Two, ImageView Three, ImageView Four){
+        this.age = age;
+        this.mUid = mUid;
+        this.full_name = full_name;
+        this.pronouns = pronouns;
+        this.state = state;
+        this.city = city;
+        this.gym = gym;
+        this.workout = workout;
+        this.motivation = motivation;
+        this.userName = userName;
+        this.sOne = One;
+        this.sTwo = Two;
+        this.sThree = Three;
+        this.sFour = Four;
+
+    }*/
 
     //other methods
     public void addABuddy(String buddy){buddies.add(buddy);}
@@ -88,11 +87,6 @@ public class Users {
     public String getMotivation(){
         return motivation;
     }
-    public Drawable getOne(){return sOne.getDrawable ();}
-    public Drawable getTwo(){return sTwo.getDrawable ();}
-    public Drawable getThree(){return sThree.getDrawable ();}
-    public Drawable getFour(){return sFour.getDrawable ();}
-    //setter methods
     public void setProfilepic(String pfp){this.profilepic = pfp;}
     public void setAge(String age){
         this.age = age;
@@ -118,7 +112,7 @@ public class Users {
     public void setWorkout(String workout){
         this.workout = workout;
     }
-    public void setOne(ImageView workout){
+  /*  public void setOne(ImageView workout){
         this.sOne = workout;
     }
     public void setTwo(ImageView workout){
@@ -129,5 +123,5 @@ public class Users {
     }
     public void setFour(ImageView workout){
         this.sFour = workout;
-    }
+    }*/
 }

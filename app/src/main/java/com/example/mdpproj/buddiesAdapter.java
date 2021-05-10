@@ -1,6 +1,5 @@
 package com.example.mdpproj;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,9 +55,9 @@ public class buddiesAdapter extends RecyclerView.Adapter<buddiesAdapter.MyViewHo
             public MyViewHolder(@NonNull View itemView, OnClick onclick) {
                 super(itemView);
 
-                firstName = itemView.findViewById(R.id.tvfirstName);
+                firstName = itemView.findViewById(R.id.userName);
 //                lastName = itemView.findViewById(R.id.tvlastName);
-                age = itemView.findViewById(R.id.tvage);
+                age = itemView.findViewById(R.id.age);
                 this.onclick = onclick;
                 itemView.setOnClickListener(this);
 
