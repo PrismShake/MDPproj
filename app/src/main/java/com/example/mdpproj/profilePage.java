@@ -55,10 +55,10 @@ public class profilePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_profile_page);
-        wOne = (ImageView)findViewById ( R.id.wB ) ;
-        wTwo= (ImageView)findViewById ( R.id.wB );
-        wThree = (ImageView)findViewById ( R.id.wC );
-        wFour= ( ImageView)findViewById ( R.id.wc );
+        wOne = (ImageView)findViewById ( R.id.A ) ;
+        wTwo= (ImageView)findViewById ( R.id.B );
+        wThree = (ImageView)findViewById ( R.id.C );
+        wFour= ( ImageView)findViewById ( R.id.D );
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
