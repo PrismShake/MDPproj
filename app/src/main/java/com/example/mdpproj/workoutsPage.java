@@ -24,7 +24,7 @@ public class workoutsPage extends AppCompatActivity {
         alarmManager = (AlarmManager) getSystemService ( Context.ALARM_SERVICE );
     }
     public void doTask(View view) {
-
+        //implementation of Reminder app
         TextView taskView = findViewById ( R.id.taskText );
         String task = taskView.getText().toString ();
 

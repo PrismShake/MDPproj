@@ -108,10 +108,7 @@ public class profilePage extends AppCompatActivity {
                 workout.setText(u.getWorkout());
                 motivation.setText(u.getMotivation());
                 gym.setText(u.getGym());
-/*                wOne.setForeground ( u.getOne () );
-                wTwo.setForeground ( u.getTwo () );
-                wThree.setForeground ( u.getThree () );
-                wFour.setForeground ( u.getFour () );*/
+
                 //only be used loading local images
                 if((u.getProfilepic()!=null)&&(!u.getProfilepic().isEmpty()))
                     Picasso.get().load(u.getProfilepic()).into(profileImageView);
