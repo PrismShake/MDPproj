@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +18,7 @@ import java.util.List;
 
 import static com.example.mdpproj.Questions.LayoutOne;
 import static com.example.mdpproj.Questions.LayoutTwo;
+
 /*
    Desc: Represents the Adapter for the RecyclerView in the Activity Questionaire
          Itegrates multiple types of Layout views representing diff kinds of questions
@@ -29,6 +29,9 @@ public class Questionare_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
     //user responses
     private String[] answersList;
 
+    public Questionare_Adapter(){
+
+    }
     //constructor for adapter
     public Questionare_Adapter(List<Questions> questionsList ){
         this.questionsList = questionsList;

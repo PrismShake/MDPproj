@@ -19,6 +19,9 @@ public class Questions {
 
     //Two diff kinds of Questions so two diff kinds of constructors
 
+    public Questions(){
+
+    }
     //Constructor for viewType 0
     //@param: viewType(which should be 0) and the question text
     public Questions(int viewType, String text) {
