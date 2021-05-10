@@ -28,13 +28,13 @@ public class pickworks extends AppCompatActivity {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_pickworks );
 
-        res = (ImageView)findViewById ( R.id.res ) ;
+/*        res = (ImageView)findViewById ( R.id.res ) ;
         tred= (ImageView)findViewById ( R.id.tread );
          bike= (ImageView)findViewById ( R.id.bike );
         yoga= ( ImageView)findViewById ( R.id.yog );
         bench = (ImageView)findViewById ( R.id.bench );
         free = (ImageView)findViewById ( R.id.bell ) ;
-        mRoot = FirebaseDatabase.getInstance().getReference("Users");
+        mRoot = FirebaseDatabase.getInstance().getReference("Users");*/
 
         //where data is read from database and used to update the profile accordingly
         //based off the users response to the questionaire
@@ -42,7 +42,7 @@ public class pickworks extends AppCompatActivity {
         //listens to whether get() is successful or not
 
     }
-    public void resistanceMach(View view) {
+  /*  public void resistanceMach(View view) {
         mRoot.child(current_user_id).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot> () {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
@@ -123,6 +123,6 @@ public class pickworks extends AppCompatActivity {
 
             }
         });
-    }
+    }*/
 
 }

@@ -1,26 +1,23 @@
 package com.example.mdpproj;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Handler;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class buddiesPage extends AppCompatActivity implements buddiesAdapter.OnClick {
+public class buddiesMainPage extends AppCompatActivity {
     /*TextView fullName = findViewById(R.id.FullName);
     String name = fullName.getText ().toString ();*/
+    TabLayout tabLayout;
+    ViewPager viewPager;
     RecyclerView recyclerView;
     DatabaseReference database;
     buddiesAdapter myAdapter;
@@ -30,9 +27,16 @@ public class buddiesPage extends AppCompatActivity implements buddiesAdapter.OnC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_buddies_page);
+        setContentView(R.layout.activity_buddies_main_page);
 
-        recyclerView = findViewById(R.id.userList);
+        tabLayout = findViewById(R.id.tabLayout);
+        viewPager = findViewById(R.id.viewPager);
+
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+
+        getTabs();
+
+        /*recyclerView = findViewById(R.id.userList);
         database = FirebaseDatabase.getInstance().getReference("Users");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -66,16 +70,29 @@ public class buddiesPage extends AppCompatActivity implements buddiesAdapter.OnC
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
+        });*/
+
+
+    }
+
+
+    public void getTabs(){
+        final ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                viewPagerAdapter.addFragment(FindBuddiesFragment.getInstance(),"Find Buddies");
+                viewPagerAdapter.addFragment(MyBuddiesFragment.getInstance(),"My Buddies");
+                viewPager.setAdapter(viewPagerAdapter);
+                tabLayout.setupWithViewPager(viewPager);
+            }
         });
-
-
-        }
-
-    @Override
+    }
+   /* @Override
     public void OnClick(int position) {
         list.get(position);
-        Intent intent = new Intent(this,buddiesProf.class);
+        Intent intent = new Intent(this, buddiesProf.class);
         intent.putExtra("name",list.get(position).getmUid());
         startActivity(intent);
-    }
+    }*/
 }

@@ -21,8 +21,8 @@
         <activity android:name=".buddiesProf" />
         <activity android:name=".Questionare" />
         <activity android:name=".RegisterPage" />
-        <activity android:name=".buddiesPage" />
-        <activity android:name=".messagePageTwo" />
+        <activity android:name=".buddiesMainPage" />
+        <activity android:name=".MessageViewHolder$messagePageTwo" />
         <activity android:name=".messagePageOne" />
         <activity android:name=".workoutsPage" />
         <activity android:name=".profilePage" />

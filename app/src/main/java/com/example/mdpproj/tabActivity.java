@@ -27,7 +27,7 @@ public class tabActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void openBuddies(View view) {
-        Intent intent = new Intent(view.getContext(), buddiesPage.class);
+        Intent intent = new Intent(view.getContext(), buddiesMainPage.class);
         startActivity(intent);
     }
     public void openMessagesOne(View view) {
@@ -35,7 +35,7 @@ public class tabActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void openMessagesTwo(View view) {
-        Intent intent = new Intent(view.getContext(), messagePageTwo.class);
+        Intent intent = new Intent(view.getContext(), MessageViewHolder.messagePageTwo.class);
         startActivity(intent);
     }
 

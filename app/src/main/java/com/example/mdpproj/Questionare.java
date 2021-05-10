@@ -8,10 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
 
-import com.example.mdpproj.db.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -76,7 +73,7 @@ public class Questionare extends AppCompatActivity {
         //Push stuff into database
         //mDatabase.child("Users").push().setValue(u);
 
-        Intent intent = new Intent(view.getContext(),tabActivity.class);
+        Intent intent = new Intent(view.getContext(), tabActivity.class);
         startActivity(intent);
     }
 }

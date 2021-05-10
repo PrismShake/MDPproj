@@ -108,10 +108,10 @@ public class profilePage extends AppCompatActivity {
                 workout.setText(u.getWorkout());
                 motivation.setText(u.getMotivation());
                 gym.setText(u.getGym());
-                wOne.setForeground ( u.getOne () );
+/*                wOne.setForeground ( u.getOne () );
                 wTwo.setForeground ( u.getTwo () );
                 wThree.setForeground ( u.getThree () );
-                wFour.setForeground ( u.getFour () );
+                wFour.setForeground ( u.getFour () );*/
                 //only be used loading local images
                 if((u.getProfilepic()!=null)&&(!u.getProfilepic().isEmpty()))
                     Picasso.get().load(u.getProfilepic()).into(profileImageView);
@@ -239,7 +239,7 @@ public class profilePage extends AppCompatActivity {
     public void updateProfile(View view) {
 
         mRoot.child(current_user_id).setValue(new Users(uname.getText().toString(), current_user_id, fullName.getText().toString(), age.getText().toString(),pronouns.getText().toString(),
-                state.getText().toString(),city.getText().toString(),gym.getText().toString(),workout.getText().toString(),motivation.getText().toString(), wOne, wTwo, wThree, wFour));
+                state.getText().toString(),city.getText().toString(),gym.getText().toString(),workout.getText().toString(),motivation.getText().toString()));
         toggleEditTextAvailability(false);
         save.setVisibility(View.INVISIBLE);
     }
