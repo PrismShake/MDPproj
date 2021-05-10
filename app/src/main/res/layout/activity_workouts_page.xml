@@ -15,14 +15,14 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="428dp"
-            android:layout_height="955dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="519dp"
+            android:layout_height="868dp"
+            android:layout_marginTop="28dp"
             android:orientation="vertical"
             android:paddingTop="0dp"
             android:scaleType="fitStart"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.529"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/mdp_buddies_back" />
@@ -31,7 +31,7 @@
             android:id="@+id/setttextView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="276dp"
             android:fontFamily="sans-serif-condensed-light"
             android:text="set workout and timer: "
             android:textColor="#FFFFFF"
@@ -56,7 +56,7 @@
             android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/editTextNumber"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.483"
+            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/setttextView2"
             app:layout_constraintVertical_bias="1.0" />
@@ -67,7 +67,7 @@
             android:layout_height="57dp"
             android:layout_marginStart="102dp"
             android:layout_marginLeft="102dp"
-            android:layout_marginTop="272dp"
+            android:layout_marginTop="432dp"
             android:layout_marginEnd="99dp"
             android:layout_marginRight="99dp"
             android:background="@drawable/editextblank"
@@ -76,7 +76,6 @@
             android:hint="e.g. a number"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imageView" />
 
@@ -86,12 +85,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="159dp"
             android:layout_marginLeft="159dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="44dp"
             android:layout_marginEnd="159dp"
             android:layout_marginRight="159dp"
             android:onClick="doTask"
             android:text="submit"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextNumber"
             tools:ignore="OnClick" />
@@ -100,82 +100,15 @@
             android:id="@+id/workouttextView"
             android:layout_width="301dp"
             android:layout_height="60dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="68dp"
             android:fontFamily="sans-serif-condensed-light"
             android:text="workouts"
             android:textColor="#FFFFFF"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.518"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="394dp"
-            android:layout_height="280dp"
-            android:layout_marginTop="60dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.47"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/submitbutton">
-
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="360dp"
-                android:layout_height="192dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.529"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/greytabpng" />
-
-            <ImageView
-                android:id="@+id/imageView11"
-                android:layout_width="77dp"
-                android:layout_height="87dp"
-                app:layout_constraintEnd_toStartOf="@+id/imageView16"
-                app:layout_constraintStart_toEndOf="@+id/imageView10"
-                app:layout_constraintTop_toBottomOf="@+id/workoutbutton"
-                app:srcCompat="@drawable/benchpressfree" />
-
-            <ImageView
-                android:id="@+id/imageView16"
-                android:layout_width="64dp"
-                android:layout_height="71dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.775"
-                app:layout_constraintStart_toEndOf="@+id/imageView10"
-                app:layout_constraintTop_toBottomOf="@+id/workoutbutton"
-                app:srcCompat="@drawable/gymnastics" />
-
-            <ImageView
-                android:id="@+id/imageView10"
-                android:layout_width="61dp"
-                android:layout_height="72dp"
-                android:layout_marginStart="46dp"
-                android:layout_marginLeft="46dp"
-                android:layout_marginEnd="253dp"
-                android:layout_marginRight="253dp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView8"
-                app:layout_constraintStart_toStartOf="@+id/imageView8"
-                app:layout_constraintTop_toBottomOf="@+id/workoutbutton"
-                app:srcCompat="@drawable/backwork" />
-
-            <TextView
-                android:id="@+id/workoutbutton"
-                android:layout_width="380dp"
-                android:layout_height="75dp"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/editextblank"
-                android:clickable="true"
-                android:gravity="center"
-                android:onClick="viewWorks"
-                android:text="pick workouts"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
