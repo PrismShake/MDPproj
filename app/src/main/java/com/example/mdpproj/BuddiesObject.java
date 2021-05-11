@@ -1,5 +1,7 @@
 package com.example.mdpproj;
 
+import java.util.Objects;
+
 public class BuddiesObject {
     private String user_name, age, profileUrl, uid;
 
@@ -43,6 +45,22 @@ public class BuddiesObject {
 
     public void setUid(String uid) {
         this.uid = uid;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        boolean same = false;
+        if(o != null && o instanceof BuddiesObject){
+            same = this.uid == ((BuddiesObject) o).uid;
+        }
+        return same;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + (this.uid == null ? 0: this.uid.hashCode());
+        return super.hashCode();
     }
 }
 
