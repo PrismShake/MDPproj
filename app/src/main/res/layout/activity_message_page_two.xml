@@ -23,12 +23,14 @@
 
     <EditText
         android:id="@+id/message_to_send"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_width="294dp"
+        android:layout_height="44dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="44dp"
+        android:background="@drawable/editextblank"
         android:ems="10"
+        android:gravity="center"
         android:hint="Enter Message"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,12 +38,15 @@
 
     <Button
         android:id="@+id/send_message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_width="78dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
         android:layout_marginTop="44dp"
-        android:text="Send"
+        
+        android:textSize="12sp"
+        app:backgroundTint="#FF9800"
         app:layout_constraintStart_toEndOf="@+id/message_to_send"
-        app:layout_constraintTop_toBottomOf="@+id/messageList" />
+        app:layout_constraintTop_toBottomOf="@+id/messageList"
+        tools:text="Send" />
 </androidx.constraintlayout.widget.ConstraintLayout>
