@@ -35,13 +35,15 @@ public class MyBuddiesFragment extends Fragment implements BuddyAdapter.OnClick 
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
     private List<BuddiesObject> results = new ArrayList<>();
+    String current_user = FirebaseAuth.getInstance().getCurrentUser().getUid();
     // private RecyclerView.LayoutManager mLayoutManager;
     EditText mInput;
 
-    public static  MyBuddiesFragment getInstance(){
+    public static MyBuddiesFragment getInstance() {
         MyBuddiesFragment fragment = new MyBuddiesFragment();
         return fragment;
     }
+
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
@@ -51,7 +53,7 @@ public class MyBuddiesFragment extends Fragment implements BuddyAdapter.OnClick 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.my_buddies_fragment,container,false);
+        View view = inflater.inflate(R.layout.my_buddies_fragment, container, false);
 
         mRecyclerView = view.findViewById(R.id.recyclerViewMyBuddies);
         mRecyclerView.getRecycledViewPool().clear();
@@ -59,12 +61,12 @@ public class MyBuddiesFragment extends Fragment implements BuddyAdapter.OnClick 
         mRecyclerView.setHasFixedSize(false);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new BuddyAdapter(getContext(),getDataSet(), this::OnClick,false);
+        mAdapter = new BuddyAdapter(getContext(), getDataSet(), this::OnClick, true);
         mRecyclerView.setAdapter(mAdapter);
 
         mInput = getActivity().findViewById(R.id.input);
         Button mSearch = view.findViewById(R.id.search);
-        mSearch.setOnClickListener(new View.OnClickListener(){
+        mSearch.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
@@ -79,7 +81,9 @@ public class MyBuddiesFragment extends Fragment implements BuddyAdapter.OnClick 
     }
 
     private void listenForData() {
-        results.add(new BuddiesObject("Henry","18","default","eafesfewfewf"));
+        results.add(new BuddiesObject("Henry", "18", "default", "eafesfewfewf"));
+        String user_uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        ArrayList<String> buddies = getBuddies();
         DatabaseReference usersDb = FirebaseDatabase.getInstance().getReference("Users");
         // Query query = usersDb.orderByChild("userName").startAt(mInput.getText().toString()).endAt(mInput.getText().toString() + "\uf8ff");
         usersDb.addValueEventListener(new ValueEventListener() {
@@ -100,9 +104,9 @@ public class MyBuddiesFragment extends Fragment implements BuddyAdapter.OnClick 
                     if (dataSnapshot.child("profilepic").getValue() != null) {
                         profileUrl = dataSnapshot.child("profilepic").getValue().toString();
                     }
-                    if (!uid.equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+                    if (!uid.equals(FirebaseAuth.getInstance().getCurrentUser().getUid()) && buddies.contains(uid)) {
                         BuddiesObject object = new BuddiesObject(user_name, age, profileUrl, uid);
-                        if(!results.contains(object)) {
+                        if (!results.contains(object)) {
                             results.add(object);
                             mAdapter.notifyDataSetChanged();
                         }
@@ -168,13 +172,38 @@ public class MyBuddiesFragment extends Fragment implements BuddyAdapter.OnClick 
         int size = this.results.size();
         this.results.clear();
         mRecyclerView.getRecycledViewPool().clear();
-        mAdapter.notifyItemRangeChanged(0,size);
+        mAdapter.notifyItemRangeChanged(0, size);
     }
 
+    private ArrayList<String> getBuddies()
+    {
+        ArrayList<String> buddies = new ArrayList<String>();
+        DatabaseReference buddiesList = FirebaseDatabase.getInstance().getReference("Users").child(current_user).child("Buddies");
+        buddiesList.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        String uid = dataSnapshot.getRef().getKey();
+                        if (uid != null) {
+                            buddies.add(uid);
+
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        return buddies;
+    }
 
     private List<BuddiesObject> getDataSet() {
         listenForData();
-        for(int i = 0; i < results.size();i++){
+        for (int i = 0; i < results.size(); i++) {
             Log.i("Results", results.get(i).getUser_name());
         }
         return results;
@@ -183,7 +212,7 @@ public class MyBuddiesFragment extends Fragment implements BuddyAdapter.OnClick 
     public void OnClick(int position) {
         results.get(position);
         Intent intent = new Intent(getContext(), buddiesProf.class);
-        intent.putExtra("name",results.get(position).getUid());
+        intent.putExtra("name", results.get(position).getUid());
         startActivity(intent);
     }
 }

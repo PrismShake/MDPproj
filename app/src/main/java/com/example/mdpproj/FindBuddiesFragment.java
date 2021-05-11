@@ -86,6 +86,7 @@ public class FindBuddiesFragment extends Fragment implements BuddyAdapter.OnClic
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
                     String user_name = "";
                     String profileUrl = "";
                     String age = "";
