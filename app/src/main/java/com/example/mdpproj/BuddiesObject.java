@@ -3,16 +3,20 @@ package com.example.mdpproj;
 import java.util.Objects;
 
 public class BuddiesObject {
+
+
     private String user_name, age, profileUrl, uid;
+
 
     public BuddiesObject(){
 
     }
-    public BuddiesObject(String user_name, String age, String profileUrl, String uid){
+    public BuddiesObject( String user_name, String age, String profileUrl, String uid){
         this.user_name = user_name;
         this.age = age;
         this.profileUrl = profileUrl;
         this.uid = uid;
+
     }
 
     public String getUid() {
@@ -47,6 +51,9 @@ public class BuddiesObject {
         this.uid = uid;
     }
 
+    /*
+       Overrode the equals function otherwise program automatically creates new object
+     */
     @Override
     public boolean equals(Object o) {
         boolean same = false;

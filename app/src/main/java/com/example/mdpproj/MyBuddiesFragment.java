@@ -61,7 +61,7 @@ public class MyBuddiesFragment extends Fragment implements BuddyAdapter.OnClick 
         mRecyclerView.setHasFixedSize(false);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new BuddyAdapter(getContext(), getDataSet(), this::OnClick, true);
+        mAdapter = new BuddyAdapter(getContext(), getDataSet(), this::OnClick, 1);
         mRecyclerView.setAdapter(mAdapter);
 
         mInput = getActivity().findViewById(R.id.input);
