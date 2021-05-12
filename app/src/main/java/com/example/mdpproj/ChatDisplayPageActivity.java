@@ -3,9 +3,7 @@ package com.example.mdpproj;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -25,10 +23,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class messagePageOne extends AppCompatActivity implements buddiesAdapter.OnClick{
+public class ChatDisplayPageActivity extends AppCompatActivity implements buddiesAdapter.OnClick{
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
-    private List<BuddiesObject> results = new ArrayList<>();
+    private List<BuddyObject> results = new ArrayList<>();
     String current_user = FirebaseAuth.getInstance().getCurrentUser().getUid();
     // private RecyclerView.LayoutManager mLayoutManager;
     EditText mInput;
@@ -61,10 +59,10 @@ public class messagePageOne extends AppCompatActivity implements buddiesAdapter.
     }
 
     private void listenForData() {
-        results.add(new BuddiesObject("Henry", "18", "default", "eafesfewfewf"));
+        results.add(new BuddyObject("Henry", "18", "default", "eafesfewfewf"));
         String user_uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         ArrayList<String> buddies = getBuddies();
-        DatabaseReference usersDb = FirebaseDatabase.getInstance().getReference("Users");
+        DatabaseReference usersDb = FirebaseDatabase.getInstance().getReference("UserObject");
         // Query query = usersDb.orderByChild("userName").startAt(mInput.getText().toString()).endAt(mInput.getText().toString() + "\uf8ff");
         usersDb.addValueEventListener(new ValueEventListener() {
             @Override
@@ -85,7 +83,7 @@ public class messagePageOne extends AppCompatActivity implements buddiesAdapter.
                         profileUrl = dataSnapshot.child("profilepic").getValue().toString();
                     }
                     if (!uid.equals(FirebaseAuth.getInstance().getCurrentUser().getUid()) && buddies.contains(uid)) {
-                        BuddiesObject object = new BuddiesObject(user_name, age, profileUrl, uid);
+                        BuddyObject object = new BuddyObject(user_name, age, profileUrl, uid);
                         if (!results.contains(object)) {
                             results.add(object);
                             mAdapter.notifyDataSetChanged();
@@ -114,7 +112,7 @@ public class messagePageOne extends AppCompatActivity implements buddiesAdapter.
     private ArrayList<String> getBuddies()
     {
         ArrayList<String> buddies = new ArrayList<String>();
-        DatabaseReference buddiesList = FirebaseDatabase.getInstance().getReference("Users").child(current_user).child("Buddies");
+        DatabaseReference buddiesList = FirebaseDatabase.getInstance().getReference("UserObject").child(current_user).child("Buddies");
         buddiesList.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -137,7 +135,7 @@ public class messagePageOne extends AppCompatActivity implements buddiesAdapter.
         return buddies;
     }
 
-    private List<BuddiesObject> getDataSet() {
+    private List<BuddyObject> getDataSet() {
         listenForData();
         for (int i = 0; i < results.size(); i++) {
             Log.i("Results", results.get(i).getUser_name());
@@ -147,14 +145,14 @@ public class messagePageOne extends AppCompatActivity implements buddiesAdapter.
 
     public void OnClick(int position) {
         results.get(position);
-        Intent intent = new Intent(this, buddiesProf.class);
+        Intent intent = new Intent(this, GoToBuddyProfileActivity.class);
         intent.putExtra("name", results.get(position).getUid());
         startActivity(intent);
     }
 //    RecyclerView recyclerView;
 //    DatabaseReference database;
 //    buddiesAdapter myAdapter;
-//    ArrayList<Users> list;
+//    ArrayList<UserObject> list;
 //    String current_user_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
@@ -163,7 +161,7 @@ public class messagePageOne extends AppCompatActivity implements buddiesAdapter.
 //        setContentView(R.layout.activity_message_page_one);
 //
 //        recyclerView = findViewById(R.id.matchedList);
-//        database = FirebaseDatabase.getInstance().getReference("Users");
+//        database = FirebaseDatabase.getInstance().getReference("UserObject");
 //        recyclerView.setHasFixedSize(true);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 //
@@ -175,7 +173,7 @@ public class messagePageOne extends AppCompatActivity implements buddiesAdapter.
 //        database.child(current_user_id).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
 //            @Override
 //            public void onSuccess(DataSnapshot dataSnapshot) {
-//                Users u = dataSnapshot.getValue(Users.class);
+//                UserObject u = dataSnapshot.getValue(UserObject.class);
 //                List<String> finalBuddies = new ArrayList<>();
 //                if(u!=null){
 //                    finalBuddies = u.getBuddies();
@@ -186,12 +184,12 @@ public class messagePageOne extends AppCompatActivity implements buddiesAdapter.
 //                    @Override
 //                    public void onSuccess(DataSnapshot snapshot) {
 //                        for (DataSnapshot data : snapshot.getChildren()){
-//                            Users u = data.getValue(Users.class);
+//                            UserObject u = data.getValue(UserObject.class);
 //                            if(u!=null) {
 //                                String Uid = u.getmUid();
 //                                if(Uid!=null && !Uid.equals(current_user_id)) {
 //                                    if(finalBuddies1.contains(Uid)){
-//                                        Users user = data.getValue ( Users.class );
+//                                        UserObject user = data.getValue ( UserObject.class );
 //                                        list.add ( user );
 //                                    }
 //                                }
@@ -208,14 +206,14 @@ public class messagePageOne extends AppCompatActivity implements buddiesAdapter.
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    Users u = dataSnapshot.getValue(Users.class);
+                    UserObject u = dataSnapshot.getValue(UserObject.class);
                     String Uid = u.getmUid();
                     
                     if(Uid != null)
                         Log.i("Snapshot",Uid);
                     Log.i("Snapshot",current_user_id);
                     if(Uid!=null && !Uid.equals(current_user_id)) {
-                        Users user = dataSnapshot.getValue ( Users.class );
+                        UserObject user = dataSnapshot.getValue ( UserObject.class );
                         list.add ( user );
                     }
                 }

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -22,6 +21,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class MessageViewHolder extends RecyclerView.ViewHolder {
     TextView messageTV;
     TextView messengerTV;
@@ -32,8 +33,8 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
     }
     public void bindMessage(MessageObject messageObject){
         //set the two textviews
-        if(messageObject.getText() != null){
-            messageTV.setText(messageObject.getText());
+        if(messageObject.getmContent() != null){
+            messageTV.setText(messageObject.getmContent());
         }
         messengerTV.setText(messageObject.getUid());
     }
@@ -41,7 +42,7 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
     public static class messagePageTwo extends AppCompatActivity {
         String username;
         EditText message;
-        Button send;
+        CircleImageView send;
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference mDatabase;
         FirebaseRecyclerAdapter<MessageObject, MessageViewHolder> adapter;
@@ -86,10 +87,10 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
                     //get context from EditText
                     String text = message.getText().toString().trim();
 
-                    mDatabase.child("Users").child(user.getUid()).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+                    mDatabase.child("UserObject").child(user.getUid()).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
                         @Override
                         public void onSuccess(DataSnapshot dataSnapshot) {
-                            Users u = dataSnapshot.getValue(Users.class);
+                            UserObject u = dataSnapshot.getValue(UserObject.class);
                             if(u!=null)
                                 username = u.getUserName();
                         }
@@ -99,7 +100,7 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
                         MessageObject messageObject = new MessageObject(text, user.getUid());
                         //save it to Firebase DB
                         mDatabase.child("messages").child(user.getUid()).push().setValue(messageObject);
-                        messageObject.setText("");
+                        messageObject.setmContent("");
                     }
 
                 }

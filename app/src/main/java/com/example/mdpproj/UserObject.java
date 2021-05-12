@@ -9,17 +9,17 @@ import java.util.List;
 /*
     Desc: User class that represents the User entity in our Firebase Database
  */
-public class Users {
+public class UserObject {
     private String userName, mUid, full_name, pronouns, state, city, gym, workout, motivation, age, profilepic;
     private List<String> buddies = new ArrayList<String>();
     private ImageView sOne, sTwo, sThree, sFour;
 
-    public Users(){
+    public UserObject(){
 
     }
 
     //constructor
-    public Users(String userName, String mUid, String full_name, String age, String pronouns, String state, String city, String gym, String workout, String motivation){
+    public UserObject(String userName, String mUid, String full_name, String age, String pronouns, String state, String city, String gym, String workout, String motivation){
         this.age = age;
         this.mUid = mUid;
         this.full_name = full_name;
@@ -32,7 +32,7 @@ public class Users {
         this.userName = userName;
         this.profilepic = "default";
     }
-   /* public Users(String userName, String mUid, String full_name, String age, String pronouns, String state, String city, String gym, String workout, String motivation, ImageView One, ImageView Two, ImageView Three, ImageView Four){
+   /* public UserObject(String userName, String mUid, String full_name, String age, String pronouns, String state, String city, String gym, String workout, String motivation, ImageView One, ImageView Two, ImageView Three, ImageView Four){
         this.age = age;
         this.mUid = mUid;
         this.full_name = full_name;

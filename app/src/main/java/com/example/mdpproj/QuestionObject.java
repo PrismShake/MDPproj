@@ -1,9 +1,9 @@
 package com.example.mdpproj;
 /*
-   Desc: Represents the Questions in the Questionaire Activity
+   Desc: Represents the QuestionObject in the Questionaire Activity
          which will be used to represent the items in the viewholder for the adapter used in Questionaire Activity
  */
-public class Questions {
+public class QuestionObject {
 
     //two diff kinds of layouts
     //public b/c it is used in the Questionaire_Adapter
@@ -17,21 +17,21 @@ public class Questions {
     private int img[];
     private String[] texts;
 
-    //Two diff kinds of Questions so two diff kinds of constructors
+    //Two diff kinds of QuestionObject so two diff kinds of constructors
 
-    public Questions(){
+    public QuestionObject(){
 
     }
     //Constructor for viewType 0
     //@param: viewType(which should be 0) and the question text
-    public Questions(int viewType, String text) {
+    public QuestionObject(int viewType, String text) {
         this.question_text = text;
         this.viewType = viewType;
     }
 
     //Constructor for viewType 1
     //@param: viewType(which should be 1), the images the user would click as an option for the question, and the captions under the images
-    public Questions(int viewType, String text, int img[], String[] texts) {
+    public QuestionObject(int viewType, String text, int img[], String[] texts) {
         this.question_text = text;
         this.img = img;
         this.texts = texts;

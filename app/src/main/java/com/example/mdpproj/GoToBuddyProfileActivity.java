@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-public class buddiesProf extends AppCompatActivity {
+public class GoToBuddyProfileActivity extends AppCompatActivity {
     DatabaseReference mRoot;
     FirebaseAuth auth;
     String current_user_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -45,7 +45,7 @@ public class buddiesProf extends AppCompatActivity {
         motivation = findViewById(R.id.Motivation);
         gym = findViewById(R.id.Gym);
         profileImageView = findViewById(R.id.buddyProf);
-        mRoot = FirebaseDatabase.getInstance().getReference("Users");
+        mRoot = FirebaseDatabase.getInstance().getReference("UserObject");
         Intent intent = getIntent();
         String currentDude = intent.getStringExtra("name");
 
@@ -58,7 +58,7 @@ public class buddiesProf extends AppCompatActivity {
             @Override
 
             public void onSuccess(DataSnapshot dataSnapshot) {
-                Users u = dataSnapshot.getValue(Users.class);
+                UserObject u = dataSnapshot.getValue(UserObject.class);
                 String user_name = u.getUserName();
                 buddy_id = u.getmUid();
                 Log.i("Current User",currentDude);
@@ -83,7 +83,7 @@ public class buddiesProf extends AppCompatActivity {
                 mRoot.child(current_user_id).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Users current = snapshot.getValue(Users.class);
+                        UserObject current = snapshot.getValue(UserObject.class);
                         Log.i("Current_User",current.toString());
                         if(buddy_id != null && !current.getBuddies().contains(buddy_id))
                             current.addABuddy(buddy_id);

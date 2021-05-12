@@ -1,17 +1,15 @@
 package com.example.mdpproj;
 
-import java.util.Objects;
-
-public class BuddiesObject {
+public class BuddyObject {
 
 
     private String user_name, age, profileUrl, uid;
 
 
-    public BuddiesObject(){
+    public BuddyObject(){
 
     }
-    public BuddiesObject( String user_name, String age, String profileUrl, String uid){
+    public BuddyObject(String user_name, String age, String profileUrl, String uid){
         this.user_name = user_name;
         this.age = age;
         this.profileUrl = profileUrl;
@@ -57,8 +55,8 @@ public class BuddiesObject {
     @Override
     public boolean equals(Object o) {
         boolean same = false;
-        if(o != null && o instanceof BuddiesObject){
-            same = this.uid == ((BuddiesObject) o).uid;
+        if(o != null && o instanceof BuddyObject){
+            same = this.uid == ((BuddyObject) o).uid;
         }
         return same;
     }

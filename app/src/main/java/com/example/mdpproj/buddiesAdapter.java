@@ -14,10 +14,10 @@ public class buddiesAdapter extends RecyclerView.Adapter<buddiesAdapter.MyViewHo
 
         Context context;
 
-        ArrayList<Users> list;
+        ArrayList<UserObject> list;
         private OnClick onclick;
 
-        public buddiesAdapter(Context context, ArrayList<Users> list, OnClick onclick) {
+        public buddiesAdapter(Context context, ArrayList<UserObject> list, OnClick onclick) {
             this.context = context;
             this.list = list;
             this.onclick = onclick;
@@ -33,7 +33,7 @@ public class buddiesAdapter extends RecyclerView.Adapter<buddiesAdapter.MyViewHo
         @Override //
         public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-            Users user = list.get(position);
+            UserObject user = list.get(position);
             holder.firstName.setText(user.getFull_name ());
 //            holder.lastName.setText(user.getLastName());
             holder.age.setText(user.getAge());
@@ -46,7 +46,7 @@ public class buddiesAdapter extends RecyclerView.Adapter<buddiesAdapter.MyViewHo
             return list.size();
         }
 
-        public ArrayList<Users> getUserList(){return this.list;}
+        public ArrayList<UserObject> getUserList(){return this.list;}
 
         public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 

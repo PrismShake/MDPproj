@@ -17,15 +17,15 @@
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
         <activity android:name=".Edit_Profile_Page" />
-        <activity android:name=".buddiesProf" />
+        <activity android:name=".GoToBuddyProfileActivity" />
         <activity android:name=".Questionare" />
         <activity android:name=".RegisterPage" />
-        <activity android:name=".buddiesMainPage" />
+        <activity android:name=".BuddiesMainPageActivity" />
         <activity android:name=".MessageViewHolder$messagePageTwo" />
-        <activity android:name=".messagePageOne" />
+        <activity android:name=".ChatDisplayPageActivity" />
         <activity android:name=".workoutsPage" />
-        <activity android:name=".profilePage" />
-        <activity android:name=".tabActivity" />
+        <activity android:name=".UserProfilePageActivity" />
+        <activity android:name=".DashBoardActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
