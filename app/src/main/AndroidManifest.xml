@@ -26,6 +26,7 @@
         <activity android:name=".workoutsPage" />
         <activity android:name=".UserProfilePageActivity" />
         <activity android:name=".DashBoardActivity" />
+        <activity android:name=".MessagingActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

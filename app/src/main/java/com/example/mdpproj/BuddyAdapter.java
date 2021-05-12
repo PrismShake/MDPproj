@@ -207,7 +207,9 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
                        users buddy that they clicked
                      */
                 }else{
-                    Intent intent = new Intent(context,MessageViewHolder.messagePageTwo.class);
+                    Intent intent = new Intent(context,MessagingActivity.class);
+                    intent.putExtra("userName",list.get(position).getUser_name());
+                    intent.putExtra("ProfilePic",list.get(position).getProfileUrl());
                     context.startActivity(intent);
                 }
             }
