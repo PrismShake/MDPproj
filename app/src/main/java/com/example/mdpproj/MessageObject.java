@@ -1,55 +1,54 @@
 package com.example.mdpproj;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import java.util.Date;
 import java.util.Objects;
 
 public class MessageObject {
     private String mContent;
-    private String mUid;
     private long mTimestamp;
 
     //Needed for Firebase
-    public MessageObject(){
+    public MessageObject() {
 
     }
 
-    public MessageObject(String message, String uid){
+    public MessageObject(String message) {
         mContent = message;
-        mUid = uid;
         mTimestamp = new Date().getTime();
     }
 
-    public String getmContent(){return mContent;}
-    public String getUid(){
-        return mUid;
+    public String getmContent() {
+        return mContent;
     }
+
     public long getmTimestamp() {
         return mTimestamp;
     }
-    public void setmContent(String m){
+
+    public void setText(String m) {
         mContent = m;
     }
 
-    public void setmUid(String mUid) {
-        this.mUid = mUid;
-    }
-    public void setmTimestamp(long timestamp){
+    public void setmTimestamp(long timestamp) {
         mTimestamp = timestamp;
     }
 
     @Override
     public boolean equals(Object o) {
         boolean same = false;
-        if(o != null && o instanceof MessageObject){
-            same = this.mUid == ((MessageObject) o).mUid;
+        if (o != null && o instanceof MessageObject) {
+            same = this.mTimestamp == ((MessageObject) o).mTimestamp;
         }
         return same;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public int hashCode() {
-        int result = 17;
-        result = 31 * result + (this.mUid == null ? 0: this.mUid.hashCode());
-        return super.hashCode();
+        return Objects.hash(mContent, mTimestamp);
     }
 }
