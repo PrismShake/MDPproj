@@ -30,12 +30,12 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
         messageTV = itemView.findViewById(R.id.messageTextView);
         messengerTV = itemView.findViewById(R.id.messengerTextView);
     }
-    public void bindMessage(Message message){
+    public void bindMessage(MessageObject messageObject){
         //set the two textviews
-        if(message.getText() != null){
-            messageTV.setText(message.getText());
+        if(messageObject.getText() != null){
+            messageTV.setText(messageObject.getText());
         }
-        messengerTV.setText(message.getUid());
+        messengerTV.setText(messageObject.getUid());
     }
 
     public static class messagePageTwo extends AppCompatActivity {
@@ -44,7 +44,7 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
         Button send;
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference mDatabase;
-        FirebaseRecyclerAdapter<Message, MessageViewHolder> adapter;
+        FirebaseRecyclerAdapter<MessageObject, MessageViewHolder> adapter;
         RecyclerView messageList;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -56,15 +56,15 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
             mDatabase = FirebaseDatabase.getInstance().getReference();
             messageList = findViewById(R.id.messageList);
             //initialize FirebaseRecyclerAdapter
-            FirebaseRecyclerOptions<Message> options =
-                    new FirebaseRecyclerOptions.Builder<Message>()
+            FirebaseRecyclerOptions<MessageObject> options =
+                    new FirebaseRecyclerOptions.Builder<MessageObject>()
                         .setQuery(FirebaseDatabase.getInstance()
-                                  .getReference().child("messages"),Message.class)
+                                  .getReference().child("messages"), MessageObject.class)
                         .build();
 
-            adapter = new FirebaseRecyclerAdapter<Message, MessageViewHolder>(options) {
+            adapter = new FirebaseRecyclerAdapter<MessageObject, MessageViewHolder>(options) {
                 @Override
-                protected void onBindViewHolder(@NonNull MessageViewHolder holder, int position, @NonNull Message model) {
+                protected void onBindViewHolder(@NonNull MessageViewHolder holder, int position, @NonNull MessageObject model) {
                     //set message text
                     //set messsenger info
                     holder.bindMessage(model);
@@ -94,12 +94,12 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
                                 username = u.getUserName();
                         }
                     });
-                    //create Message object from content
+                    //create MessageObject object from content
                     if(username!=null){
-                        Message message = new Message(text, user.getUid());
+                        MessageObject messageObject = new MessageObject(text, user.getUid());
                         //save it to Firebase DB
-                        mDatabase.child("messages").child(user.getUid()).push().setValue(message);
-                        message.setText("");
+                        mDatabase.child("messages").child(user.getUid()).push().setValue(messageObject);
+                        messageObject.setText("");
                     }
 
                 }

@@ -59,7 +59,7 @@ public class FindBuddiesFragment extends Fragment implements BuddyAdapter.OnClic
         mRecyclerView.setHasFixedSize(false);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new BuddyAdapter(getContext(),getDataSet(), this::OnClick,false);
+        mAdapter = new BuddyAdapter(getContext(),getDataSet(), this::OnClick,0);
         mRecyclerView.setAdapter(mAdapter);
 
         mInput = getActivity().findViewById(R.id.input);
@@ -86,6 +86,7 @@ public class FindBuddiesFragment extends Fragment implements BuddyAdapter.OnClic
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
                     String user_name = "";
                     String profileUrl = "";
                     String age = "";
@@ -117,51 +118,6 @@ public class FindBuddiesFragment extends Fragment implements BuddyAdapter.OnClic
 
             }
         });
-        /*
-        usersDb.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String user_name = "";
-                String profileUrl = "";
-                String age = "";
-                String uid = snapshot.getRef().getKey();
-                if(snapshot.child("userName").getValue() != null){
-                    user_name = snapshot.child("userName").getValue().toString();
-                }
-                if(snapshot.child("age").getValue() != null){
-                    age = snapshot.child("age").getValue().toString();
-                }
-                if(snapshot.child("profilepic").getValue() != null){
-                    profileUrl = snapshot.child("profilepic").getValue().toString();
-                }
-                if(!uid.equals(FirebaseAuth.getInstance().getCurrentUser().getUid())){
-                    BuddiesObject object = new BuddiesObject(user_name,age,profileUrl,uid);
-                    results.add(object);
-                   // mRecyclerView.getRecycledViewPool().clear();
-                    mAdapter.notifyDataSetChanged();
-                }
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });*/
     }
 
     private void clear() {
