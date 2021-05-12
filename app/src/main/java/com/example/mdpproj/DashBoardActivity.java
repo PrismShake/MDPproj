@@ -6,7 +6,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class tabActivity extends AppCompatActivity {
+public class DashBoardActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public class tabActivity extends AppCompatActivity {
     }
     //these are all click events where intents are are started, used for navigation
     public void openProfile(View view) {
-        Intent intent = new Intent(view.getContext(), profilePage.class);
+        Intent intent = new Intent(view.getContext(), UserProfilePageActivity.class);
         startActivity(intent);
     }
 
@@ -27,11 +27,11 @@ public class tabActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void openBuddies(View view) {
-        Intent intent = new Intent(view.getContext(), buddiesMainPage.class);
+        Intent intent = new Intent(view.getContext(), BuddiesMainPageActivity.class);
         startActivity(intent);
     }
     public void openMessagesOne(View view) {
-        Intent intent = new Intent(view.getContext(), messagePageOne.class);
+        Intent intent = new Intent(view.getContext(), ChatDisplayPageActivity.class);
         startActivity(intent);
     }
     public void openMessagesTwo(View view) {

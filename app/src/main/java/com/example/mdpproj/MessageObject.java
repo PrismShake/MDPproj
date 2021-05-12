@@ -19,14 +19,14 @@ public class MessageObject {
         mTimestamp = new Date().getTime();
     }
 
-    public String getText(){return mContent;}
+    public String getmContent(){return mContent;}
     public String getUid(){
         return mUid;
     }
     public long getmTimestamp() {
         return mTimestamp;
     }
-    public void setText(String m){
+    public void setmContent(String m){
         mContent = m;
     }
 

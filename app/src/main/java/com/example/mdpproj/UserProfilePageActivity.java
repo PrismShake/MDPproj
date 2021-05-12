@@ -34,9 +34,9 @@ import com.squareup.picasso.Picasso;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /*
-    Desc: Corresponds to the profilePage activity
+    Desc: Corresponds to the UserProfilePageActivity activity
  */
-public class profilePage extends AppCompatActivity {
+public class UserProfilePageActivity extends AppCompatActivity {
 
     ImageView wOne, wTwo, wThree, wFour;
     private CircleImageView profileImageView;
@@ -86,7 +86,7 @@ public class profilePage extends AppCompatActivity {
         toggleEditTextAvailability(false);
 
         //I obtain the User node from the Firebase database
-        mRoot = FirebaseDatabase.getInstance().getReference("Users");
+        mRoot = FirebaseDatabase.getInstance().getReference("UserObject");
 
         //where data is read from database and used to update the profile accordingly
         //based off the users response to the questionaire
@@ -97,7 +97,7 @@ public class profilePage extends AppCompatActivity {
             @Override
 
             public void onSuccess(DataSnapshot dataSnapshot) {
-                Users u = dataSnapshot.getValue(Users.class);
+                UserObject u = dataSnapshot.getValue(UserObject.class);
                 String user_name = u.getUserName();
                 uname.setText(user_name);
                 fullName.setText(u.getFull_name());
@@ -110,8 +110,10 @@ public class profilePage extends AppCompatActivity {
                 gym.setText(u.getGym());
 
                 //only be used loading local images
-                if((u.getProfilepic()!=null)&&(!u.getProfilepic().isEmpty()))
-                    Picasso.get().load(u.getProfilepic()).into(profileImageView);
+                if((u.getProfilepic()!=null)&&(!u.getProfilepic().isEmpty())) {
+                    if(!u.getProfilepic().equals("default"))
+                        Picasso.get().load(u.getProfilepic()).into(profileImageView);
+                }
             }
         });
 /*
@@ -123,8 +125,8 @@ public class profilePage extends AppCompatActivity {
                 for(DataSnapshot user: snapshot.getChildren()){
                     //Log.i("Snapshot",user.getValue().toString());
 
-                    Users u = user.getValue(Users.class);
-                    //I use a getter method from the Users.class
+                    UserObject u = user.getValue(UserObject.class);
+                    //I use a getter method from the UserObject.class
                     String Uid = u.getmUid();
                     Log.i("Snapshot",Uid);
                     //if the user in the User Node is the current user I take their info and update the profile
@@ -235,7 +237,7 @@ public class profilePage extends AppCompatActivity {
     //String userName, String mUid, String full_name, String age, String pronouns, String state, String city, String gym, String workout, String motivation
     public void updateProfile(View view) {
 
-        mRoot.child(current_user_id).setValue(new Users(uname.getText().toString(), current_user_id, fullName.getText().toString(), age.getText().toString(),pronouns.getText().toString(),
+        mRoot.child(current_user_id).setValue(new UserObject(uname.getText().toString(), current_user_id, fullName.getText().toString(), age.getText().toString(),pronouns.getText().toString(),
                 state.getText().toString(),city.getText().toString(),gym.getText().toString(),workout.getText().toString(),motivation.getText().toString()));
         toggleEditTextAvailability(false);
         save.setVisibility(View.INVISIBLE);

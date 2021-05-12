@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 //if task is successful, go on to main page and display "Logged in Successfully"
                 if(task.isSuccessful()){
                     Toast.makeText(getApplicationContext(),"Logged in Successfully", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(view.getContext(), tabActivity.class);
+                    Intent intent = new Intent(view.getContext(), DashBoardActivity.class);
                     startActivity(intent);
                     //Display error message whether it be if user entered wrong email & password or if user isnt in the database already
                 }else{
