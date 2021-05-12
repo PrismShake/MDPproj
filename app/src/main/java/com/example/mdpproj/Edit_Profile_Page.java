@@ -55,7 +55,7 @@ public class Edit_Profile_Page extends AppCompatActivity {
         profileImageView = findViewById(R.id.profile_image);
 
         mAuth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        databaseReference = FirebaseDatabase.getInstance().getReference("UserObject");
         storageProfilePicsRef = FirebaseStorage.getInstance().getReference().child("Profile Pic");
 
         closeButton = findViewById(R.id.btn_Close);
@@ -65,7 +65,7 @@ public class Edit_Profile_Page extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Edit_Profile_Page.this, profilePage.class));
+                startActivity(new Intent(Edit_Profile_Page.this, UserProfilePageActivity.class));
             }
         });
         

@@ -20,7 +20,7 @@ import java.util.List;
 public class Questionare extends AppCompatActivity {
 
     private RecyclerView rv;
-    List<Questions> questionsList = new ArrayList<>();
+    List<QuestionObject> questionObjectList = new ArrayList<>();
     Questionare_Adapter questionare_adapter;
     FirebaseUser user;
     DatabaseReference mDatabase;
@@ -37,20 +37,20 @@ public class Questionare extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        questionsList.add(new Questions(0,"Full Name "));
-        questionsList.add(new Questions(0, "Age "));
-        questionsList.add(new Questions(0,"Pronouns(Ex: she/her, he/him"));
-        questionsList.add(new Questions(0,"State(Ex: NY)"));
-        questionsList.add(new Questions(0,"City(Ex: NYC)"));
-        questionsList.add(new Questions(0,"Gym Name(Ex: Blink)"));
+        questionObjectList.add(new QuestionObject(0,"Full Name "));
+        questionObjectList.add(new QuestionObject(0, "Age "));
+        questionObjectList.add(new QuestionObject(0,"Pronouns(Ex: she/her, he/him"));
+        questionObjectList.add(new QuestionObject(0,"State(Ex: NY)"));
+        questionObjectList.add(new QuestionObject(0,"City(Ex: NYC)"));
+        questionObjectList.add(new QuestionObject(0,"Gym Name(Ex: Blink)"));
 
         int imgs[] = {R.drawable.endurance,R.drawable.strength,R.drawable.flexibility,R.drawable.balance};
         String texts[] = {"Endurance", "Strength", "Flexibility", "Balance"};
 
-        questionsList.add(new Questions(0,"What type of Workout?"));
-        questionsList.add(new Questions(0,"What is your motivation?"));
+        questionObjectList.add(new QuestionObject(0,"What type of Workout?"));
+        questionObjectList.add(new QuestionObject(0,"What is your motivation?"));
 
-        questionare_adapter= new Questionare_Adapter(questionsList);
+        questionare_adapter= new Questionare_Adapter(questionObjectList);
 
         rv.setAdapter(questionare_adapter);
 
@@ -66,14 +66,14 @@ public class Questionare extends AppCompatActivity {
         for(int i = 0; i < answers.length;i++)
             Log.i("Answers",answers[i]);
 
-        Users u = new Users(Username, user.getUid(),answers[0],answers[1],answers[2],answers[3],answers[4],answers[5],answers[6],answers[7]);
+        UserObject u = new UserObject(Username, user.getUid(),answers[0],answers[1],answers[2],answers[3],answers[4],answers[5],answers[6],answers[7]);
 
         //Push stuff into database
-        mDatabase.child("Users").child(u.getmUid()).setValue(u);
+        mDatabase.child("UserObject").child(u.getmUid()).setValue(u);
         //Push stuff into database
-        //mDatabase.child("Users").push().setValue(u);
+        //mDatabase.child("UserObject").push().setValue(u);
 
-        Intent intent = new Intent(view.getContext(), tabActivity.class);
+        Intent intent = new Intent(view.getContext(), DashBoardActivity.class);
         startActivity(intent);
     }
 }

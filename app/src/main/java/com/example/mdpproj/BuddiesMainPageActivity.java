@@ -13,7 +13,7 @@ import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
 
-public class buddiesMainPage extends AppCompatActivity {
+public class BuddiesMainPageActivity extends AppCompatActivity {
     /*TextView fullName = findViewById(R.id.FullName);
     String name = fullName.getText ().toString ();*/
     TabLayout tabLayout;
@@ -21,7 +21,7 @@ public class buddiesMainPage extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference database;
     buddiesAdapter myAdapter;
-    ArrayList<Users> list;
+    ArrayList<UserObject> list;
     String current_user_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class buddiesMainPage extends AppCompatActivity {
         getTabs();
 
         /*recyclerView = findViewById(R.id.userList);
-        database = FirebaseDatabase.getInstance().getReference("Users");
+        database = FirebaseDatabase.getInstance().getReference("UserObject");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -52,13 +52,13 @@ public class buddiesMainPage extends AppCompatActivity {
 
 
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    Users u = dataSnapshot.getValue(Users.class);
+                    UserObject u = dataSnapshot.getValue(UserObject.class);
                     String Uid = u.getmUid();
                     if(Uid != null)
                        Log.i("Snapshot",Uid);
                     Log.i("Snapshot",current_user_id);
                     if(Uid!=null && !Uid.equals(current_user_id)) {
-                        Users user = dataSnapshot.getValue ( Users.class );
+                        UserObject user = dataSnapshot.getValue ( UserObject.class );
                         list.add ( user );
                     }
                 }
@@ -91,7 +91,7 @@ public class buddiesMainPage extends AppCompatActivity {
    /* @Override
     public void OnClick(int position) {
         list.get(position);
-        Intent intent = new Intent(this, buddiesProf.class);
+        Intent intent = new Intent(this, GoToBuddyProfileActivity.class);
         intent.putExtra("name",list.get(position).getmUid());
         startActivity(intent);
     }*/

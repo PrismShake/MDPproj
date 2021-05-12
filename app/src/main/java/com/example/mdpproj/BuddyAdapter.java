@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,19 +23,18 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.mdpproj.Questions.LayoutOne;
-import static com.example.mdpproj.Questions.LayoutTwo;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder> {
 
 
     Context context;
-    List<BuddiesObject> list;
+    List<BuddyObject> list;
     int typeOfDisplay;
     private OnClick onclick;
     ArrayList<String> buddies;
@@ -49,7 +48,7 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
           1 --> MyBuddiesFragment
           2 --> Message
          */
-    public BuddyAdapter(Context context, List<BuddiesObject> list, OnClick onclick, int typeOfDisplay) {
+    public BuddyAdapter(Context context, List<BuddyObject> list, OnClick onclick, int typeOfDisplay) {
         this.list = list;
         this.onclick = onclick;
         this.context = context;
@@ -57,7 +56,7 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
 
         //get buddies of current user from Firebase
         buddies = new ArrayList<String>();
-        DatabaseReference buddiesList = FirebaseDatabase.getInstance().getReference("Users").child(userId).child("Buddies");
+        DatabaseReference buddiesList = FirebaseDatabase.getInstance().getReference("UserObject").child(userId).child("Buddies");
         buddiesList.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -127,9 +126,13 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
         }
 
         //set buddy's username and age from list of buddyObject
-        BuddiesObject buddy = list.get(position);
+        BuddyObject buddy = list.get(position);
         holder.userName.setText(buddy.getUser_name());
         holder.age.setText(buddy.getAge());
+        if(list.get(position).getProfileUrl() != null || !list.get(position).getProfileUrl().equals("default"))
+            Picasso.get().load(Uri.parse(list.get(position).getProfileUrl())).into(holder.profile_pic);
+        else
+            holder.profile_pic.setImageResource(R.drawable.profile_icon);
 
         /*
             This section of the code is where the user clicks on the left and right button
@@ -141,7 +144,7 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
             @Override
             public void onClick(View view) {
                 list.get(position);
-                Intent intent = new Intent(context, buddiesProf.class);
+                Intent intent = new Intent(context, GoToBuddyProfileActivity.class);
                 intent.putExtra("name",list.get(position).getUid());
                 context.startActivity(intent);
             }
@@ -171,7 +174,7 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
                         holder.match_with_buddy.setImageResource(R.drawable.ic_unmatch);
                         holder.match_with_buddy.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFA500")));
                         FirebaseDatabase.getInstance().getReference()
-                                .child("Users").child(userId).child("Buddies").child(list.get(position).getUid()).setValue(true);
+                                .child("UserObject").child(userId).child("Buddies").child(list.get(position).getUid()).setValue(true);
                         notifyDataSetChanged();
                         return;
 
@@ -182,7 +185,7 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
                         holder.match_with_buddy.setImageResource(R.drawable.ic_match);
                         holder.match_with_buddy.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFA500")));
                         FirebaseDatabase.getInstance().getReference()
-                                .child("Users").child(userId).child("Buddies").child(list.get(position).getUid()).removeValue();
+                                .child("UserObject").child(userId).child("Buddies").child(list.get(position).getUid()).removeValue();
                         notifyDataSetChanged();
                         return;
                     }
@@ -193,7 +196,7 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
                 }else if(typeOfDisplay == 1){
                     //remove buddy from firebase
                     FirebaseDatabase.getInstance().getReference()
-                            .child("Users").child(userId).child("Buddies").child(list.get(position).getUid()).removeValue();
+                            .child("UserObject").child(userId).child("Buddies").child(list.get(position).getUid()).removeValue();
                     notifyDataSetChanged();
                     //remove buddy from recyclerview
                     list.remove(position);
@@ -204,7 +207,9 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
                        users buddy that they clicked
                      */
                 }else{
-                    Intent intent = new Intent(context,MessageViewHolder.messagePageTwo.class);
+                    Intent intent = new Intent(context,MessagingActivity.class);
+                    intent.putExtra("userName",list.get(position).getUser_name());
+                    intent.putExtra("ProfilePic",list.get(position).getProfileUrl());
                     context.startActivity(intent);
                 }
             }
@@ -216,7 +221,7 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
         return list.size();
     }
 
-    public List<BuddiesObject> getUserList() {
+    public List<BuddyObject> getUserList() {
         return this.list;
     }
 
@@ -226,15 +231,18 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
         OnClick onclick;
         Button go_to_profile;
         ImageView match_with_buddy;
+        CircleImageView profile_pic;
 
         public MyViewHolder(@NonNull View itemView, OnClick onclick) {
             super(itemView);
+
 
             userName = itemView.findViewById(R.id.userName);
 //                lastName = itemView.findViewById(R.id.tvlastName);
             age = itemView.findViewById(R.id.age);
             go_to_profile = itemView.findViewById(R.id.go_to_profile);
             match_with_buddy = itemView.findViewById(R.id.match_with_buddy);
+            profile_pic = itemView.findViewById(R.id.buddy_profile_pic);
             /*
             this.onclick = onclick;
             itemView.setOnClickListener(this);*/

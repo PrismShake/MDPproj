@@ -16,8 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import static com.example.mdpproj.Questions.LayoutOne;
-import static com.example.mdpproj.Questions.LayoutTwo;
+import static com.example.mdpproj.QuestionObject.LayoutOne;
+import static com.example.mdpproj.QuestionObject.LayoutTwo;
 
 /*
    Desc: Represents the Adapter for the RecyclerView in the Activity Questionaire
@@ -25,7 +25,7 @@ import static com.example.mdpproj.Questions.LayoutTwo;
  */
 public class Questionare_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     //questions
-    private List<Questions> questionsList;
+    private List<QuestionObject> questionObjectList;
     //user responses
     private String[] answersList;
 
@@ -33,15 +33,15 @@ public class Questionare_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     }
     //constructor for adapter
-    public Questionare_Adapter(List<Questions> questionsList ){
-        this.questionsList = questionsList;
-        this.answersList = new String[questionsList.size()];
+    public Questionare_Adapter(List<QuestionObject> questionObjectList){
+        this.questionObjectList = questionObjectList;
+        this.answersList = new String[questionObjectList.size()];
     }
 
     //returns the viewType of an item at a specific position in the RecyclerView
     @Override
     public int getItemViewType(int position){
-       switch(questionsList.get(position).getViewType()) {
+       switch(questionObjectList.get(position).getViewType()) {
            case 0:
                return LayoutOne;
            case 1:
@@ -141,14 +141,14 @@ public class Questionare_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        /*switch(questionsList.get(position).getViewType()){
+        /*switch(questionObjectList.get(position).getViewType()){
             case LayoutOne:
-                String text = questionsList.get(position).getText();
+                String text = questionObjectList.get(position).getText();
                 ((LayoutOneViewHolder)holder).setView(text);
             case LayoutTwo:
-                int[] images = questionsList.get(position).geticon();
-                String[] texts = questionsList.get(position).getcaptions();
-                String caption = questionsList.get(position).getText();
+                int[] images = questionObjectList.get(position).geticon();
+                String[] texts = questionObjectList.get(position).getcaptions();
+                String caption = questionObjectList.get(position).getText();
                 Log.i("Layouttwo","Whats up");
                 if(holder instanceof LayoutTwoViewHolder)
                     Log.i("Layouttwo","LayoutOne");
@@ -157,8 +157,8 @@ public class Questionare_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 return;
         }*/
 
-        if(questionsList.get(position).getViewType() == 0){
-            String text = questionsList.get(position).getText();
+        if(questionObjectList.get(position).getViewType() == 0){
+            String text = questionObjectList.get(position).getText();
 
             Log.i("Layouttwo","Whoop");
             //((LayoutOneViewHolder)holder).setView(text);
@@ -167,10 +167,10 @@ public class Questionare_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
             viewHolder.editText.setText(answersList[position]);
             //viewHolder.setView(text,position);
 
-        }else if(questionsList.get(position).getViewType() == 1){
-            int[] images = questionsList.get(position).geticon();
-            String[] texts = questionsList.get(position).getcaptions();
-            String caption = questionsList.get(position).getText();
+        }else if(questionObjectList.get(position).getViewType() == 1){
+            int[] images = questionObjectList.get(position).geticon();
+            String[] texts = questionObjectList.get(position).getcaptions();
+            String caption = questionObjectList.get(position).getText();
             Log.i("Layouttwo","Whats up");
             LayoutTwoViewHolder viewHolderTwo = (LayoutTwoViewHolder) holder;
             viewHolderTwo.setViews(images,texts,caption);
@@ -180,6 +180,6 @@ public class Questionare_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
     //returns the number of items in the recycler view
     @Override
     public int getItemCount() {
-        return questionsList.size();
+        return questionObjectList.size();
     }
 }
