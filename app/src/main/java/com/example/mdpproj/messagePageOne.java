@@ -33,13 +33,12 @@ public class messagePageOne extends AppCompatActivity implements buddiesAdapter.
     // private RecyclerView.LayoutManager mLayoutManager;
     EditText mInput;
 
-
-
-    @Nullable
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.my_buddies_fragment, container, false);
-
-        mRecyclerView = view.findViewById(R.id.recyclerViewMyBuddies);
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
+        setContentView(R.layout.my_buddies_fragment);
+        mRecyclerView = findViewById(R.id.recyclerViewMyBuddies);
         mRecyclerView.getRecycledViewPool().clear();
         mRecyclerView.setNestedScrollingEnabled(false);
         mRecyclerView.setHasFixedSize(false);
@@ -49,7 +48,7 @@ public class messagePageOne extends AppCompatActivity implements buddiesAdapter.
         mRecyclerView.setAdapter(mAdapter);
 
 //        mInput = getActivity().findViewById(R.id.input);
-        Button mSearch = view.findViewById(R.id.search);
+        Button mSearch = findViewById(R.id.search);
         mSearch.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -58,9 +57,6 @@ public class messagePageOne extends AppCompatActivity implements buddiesAdapter.
                 listenForData();
             }
         });
-
-
-        return view;
 
     }
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,10 +24,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import static com.example.mdpproj.Questions.LayoutOne;
 import static com.example.mdpproj.Questions.LayoutTwo;
@@ -130,6 +134,10 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
         BuddiesObject buddy = list.get(position);
         holder.userName.setText(buddy.getUser_name());
         holder.age.setText(buddy.getAge());
+        if(list.get(position).getProfileUrl() != null || !list.get(position).getProfileUrl().equals("default"))
+            Picasso.get().load(Uri.parse(list.get(position).getProfileUrl())).into(holder.profile_pic);
+        else
+            holder.profile_pic.setImageResource(R.drawable.profile_icon);
 
         /*
             This section of the code is where the user clicks on the left and right button
@@ -226,15 +234,18 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
         OnClick onclick;
         Button go_to_profile;
         ImageView match_with_buddy;
+        CircleImageView profile_pic;
 
         public MyViewHolder(@NonNull View itemView, OnClick onclick) {
             super(itemView);
+
 
             userName = itemView.findViewById(R.id.userName);
 //                lastName = itemView.findViewById(R.id.tvlastName);
             age = itemView.findViewById(R.id.age);
             go_to_profile = itemView.findViewById(R.id.go_to_profile);
             match_with_buddy = itemView.findViewById(R.id.match_with_buddy);
+            profile_pic = itemView.findViewById(R.id.buddy_profile_pic);
             /*
             this.onclick = onclick;
             itemView.setOnClickListener(this);*/

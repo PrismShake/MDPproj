@@ -110,8 +110,10 @@ public class profilePage extends AppCompatActivity {
                 gym.setText(u.getGym());
 
                 //only be used loading local images
-                if((u.getProfilepic()!=null)&&(!u.getProfilepic().isEmpty()))
-                    Picasso.get().load(u.getProfilepic()).into(profileImageView);
+                if((u.getProfilepic()!=null)&&(!u.getProfilepic().isEmpty())) {
+                    if(!u.getProfilepic().equals("default"))
+                        Picasso.get().load(u.getProfilepic()).into(profileImageView);
+                }
             }
         });
 /*
