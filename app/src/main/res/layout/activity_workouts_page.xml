@@ -15,14 +15,14 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="519dp"
-            android:layout_height="868dp"
-            android:layout_marginTop="28dp"
+            android:layout_width="528dp"
+            android:layout_height="880dp"
+            android:layout_marginTop="16dp"
             android:orientation="vertical"
             android:paddingTop="0dp"
             android:scaleType="fitStart"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.034"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/mdp_buddies_back" />
@@ -31,7 +31,7 @@
             android:id="@+id/setttextView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="276dp"
+            android:layout_marginTop="204dp"
             android:fontFamily="sans-serif-condensed-light"
             android:text="set workout and timer: "
             android:textColor="#FFFFFF"
@@ -59,7 +59,7 @@
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/setttextView2"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.796" />
 
         <EditText
             android:id="@+id/editTextNumber"
@@ -67,7 +67,7 @@
             android:layout_height="57dp"
             android:layout_marginStart="102dp"
             android:layout_marginLeft="102dp"
-            android:layout_marginTop="432dp"
+            android:layout_marginTop="384dp"
             android:layout_marginEnd="99dp"
             android:layout_marginRight="99dp"
             android:background="@drawable/editextblank"
@@ -76,6 +76,7 @@
             android:hint="e.g. a number"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.521"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imageView" />
 
