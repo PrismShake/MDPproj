@@ -28,21 +28,34 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.mdpproj.Questions.LayoutOne;
+import static com.example.mdpproj.Questions.LayoutTwo;
+
 public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder> {
+
 
     Context context;
     List<BuddiesObject> list;
-    Boolean myBuddy;
+    int typeOfDisplay;
     private OnClick onclick;
     ArrayList<String> buddies;
     String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-    public BuddyAdapter(Context context, List<BuddiesObject> list, OnClick onclick, boolean myBuddy) {
+    //passes context aka the activity, the list of buddies to display, onclick, typeOfDisplay
+          /*
+          When user clicks on right button does this depending on typeOfDisplay
+          Remember
+          0 --> FindBuddiesFragment
+          1 --> MyBuddiesFragment
+          2 --> Message
+         */
+    public BuddyAdapter(Context context, List<BuddiesObject> list, OnClick onclick, int typeOfDisplay) {
         this.list = list;
         this.onclick = onclick;
         this.context = context;
-        this.myBuddy = myBuddy;
-        //get buddies
+        this.typeOfDisplay = typeOfDisplay;
+
+        //get buddies of current user from Firebase
         buddies = new ArrayList<String>();
         DatabaseReference buddiesList = FirebaseDatabase.getInstance().getReference("Users").child(userId).child("Buddies");
         buddiesList.addValueEventListener(new ValueEventListener() {
@@ -66,6 +79,7 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
         });
     }
 
+
     @NonNull
     @Override
     public BuddyAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -73,45 +87,56 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
         return new MyViewHolder(v, onclick);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override //
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        //get buddies
-      //  String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-   /*     ArrayList<String> buddies = new ArrayList<String>();
-        DatabaseReference buddiesList = FirebaseDatabase.getInstance().getReference("Users").child(userId).child("Buddies");
-        buddiesList.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                        String uid = dataSnapshot.getRef().getKey();
-                        if(uid != null){
-                            buddies.add(uid);
+      /*
+          When user clicks on right button does this depending on typeOfDisplay
+          Remember
+          0 --> FindBuddiesFragment
+          1 --> MyBuddiesFragment
+          2 --> Message
+         */
 
-                        }
-                    }
-                }
+        /*
+            This section of the code sets the display before the user clicks on the buttons
+         */
+        //if display is the FindBuddies Fragment do this
+        if(typeOfDisplay == 0) {
+            //if the user is a buddy option to unmatch
+            if (buddies.contains(list.get(position).getUid())) {
+                holder.match_with_buddy.setTag("unmatch");
+                holder.match_with_buddy.setImageResource(R.drawable.ic_unmatch);
+                //if the user is not a buddy set option to match
+            } else {
+                holder.match_with_buddy.setTag("match");
+                holder.match_with_buddy.setImageResource(R.drawable.ic_match);
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });*/
-
-
-        if(buddies.contains(list.get(position).getUid())) {
+            //if display is the MyBuddiesFragment do this
+        }else if(typeOfDisplay == 1){
+            //dont need to toggle can simply unmatch
             holder.match_with_buddy.setTag("unmatch");
             holder.match_with_buddy.setImageResource(R.drawable.ic_unmatch);
+            holder.match_with_buddy.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFA500")));
+            //if display is the Message Activity do this
         }else{
-            holder.match_with_buddy.setTag("match");
-            holder.match_with_buddy.setImageResource(R.drawable.ic_match);
+            //set icon to message
+            holder.match_with_buddy.setTag("message");
+            holder.match_with_buddy.setImageResource(R.drawable.ic_message);
+            holder.match_with_buddy.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFA500")));
         }
 
-        BuddiesObject user = list.get(position);
-        holder.userName.setText(user.getUser_name());
-//            holder.lastName.setText(user.getLastName());
-        holder.age.setText(user.getAge());
+        //set buddy's username and age from list of buddyObject
+        BuddiesObject buddy = list.get(position);
+        holder.userName.setText(buddy.getUser_name());
+        holder.age.setText(buddy.getAge());
+
+        /*
+            This section of the code is where the user clicks on the left and right button
+         */
+
+
+        //When user clicks on the left button goes to profile
         holder.go_to_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -121,42 +146,67 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
                 context.startActivity(intent);
             }
         });
+
+        /*
+          When user clicks on right button does this depending on typeOfDisplay
+          Remember
+          0 --> FindBuddiesFragment
+          1 --> MyBuddiesFragment
+          2 --> Message
+         */
         holder.match_with_buddy.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View view) {
 
-                if(!myBuddy){
+                /*
+                   When user is at the FindBuddiesFragment, user can toggle between match and unmatching the users listed
+                   to add/remove from their buddies page
+                 */
+                if(typeOfDisplay == 0){
                     if (holder.match_with_buddy.getTag().equals("match")) {
+                        //add buddy to firebase
+                        //toggle to unmatch b/c you removed the user from buddy's list so then want option to match back with them
                         holder.match_with_buddy.setTag("unmatch");
                         holder.match_with_buddy.setImageResource(R.drawable.ic_unmatch);
-                       // holder.match_with_buddy.setBackgroundResource(R.drawable.ic_unmatch);
                         holder.match_with_buddy.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFA500")));
                         FirebaseDatabase.getInstance().getReference()
                                 .child("Users").child(userId).child("Buddies").child(list.get(position).getUid()).setValue(true);
                         notifyDataSetChanged();
+                        return;
 
                     } else {
+                        //remove buddy from firebase
+                        //toggle to match b/c you removed the user from buddy's list so then want option to match back with them
                         holder.match_with_buddy.setTag("match");
                         holder.match_with_buddy.setImageResource(R.drawable.ic_match);
                         holder.match_with_buddy.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFA500")));
                         FirebaseDatabase.getInstance().getReference()
                                 .child("Users").child(userId).child("Buddies").child(list.get(position).getUid()).removeValue();
-                       /* list.remove(position);
-                        notifyItemRemoved(position);
-                        notifyItemRangeChanged(position, list.size());*/
+                        notifyDataSetChanged();
+                        return;
                     }
-                }else{
-                    holder.match_with_buddy.setBackgroundResource(R.drawable.ic_unmatch);
-                    holder.match_with_buddy.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFA500")));
+                    /*
+                        When user is at the MyBuddiesFragment, user can only unmatch with the users listed b/c the users listed is their buddy
+                        and this time if they unmatch, it removes it from the display
+                     */
+                }else if(typeOfDisplay == 1){
+                    //remove buddy from firebase
                     FirebaseDatabase.getInstance().getReference()
                             .child("Users").child(userId).child("Buddies").child(list.get(position).getUid()).removeValue();
-                   list.remove(position);
-                   notifyItemRemoved(position);
-                   notifyItemRangeChanged(position, list.size());
-
+                    notifyDataSetChanged();
+                    //remove buddy from recyclerview
+                    list.remove(position);
+                    notifyItemRemoved(position);
+                    notifyItemRangeChanged(position, list.size());
+                    /*
+                       When user is at the Message activity, the app goes to the messages of the user displayed who is the
+                       users buddy that they clicked
+                     */
+                }else{
+                    Intent intent = new Intent(context,MessageViewHolder.messagePageTwo.class);
+                    context.startActivity(intent);
                 }
-
             }
         });
     }
