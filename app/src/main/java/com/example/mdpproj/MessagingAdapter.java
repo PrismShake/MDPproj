@@ -58,11 +58,14 @@ public class MessagingAdapter extends RecyclerView.Adapter{
         if(messageObjectArrayList.get(position).getViewType() == SEND){
             SenderViewHolder viewHolder = (SenderViewHolder) holder;
             viewHolder.message.setText(message.getmContent());
-            //Piccaso
+            if(MessagingActivity.sImage!=null && !MessagingActivity.sImage.equals("default"))
+                Picasso.get().load(MessagingActivity.sImage).into(((SenderViewHolder) holder).profile_sender);
+
         }else{
             ReceiverViewHolder viewHolder = (ReceiverViewHolder) holder;
             viewHolder.message.setText(message.getmContent());
-            //Picasso
+            if(MessagingActivity.rImage!=null && !MessagingActivity.rImage.equals("default"))
+                Picasso.get().load(MessagingActivity.rImage).into(((ReceiverViewHolder) holder).profile_receiver);
         }
     }
 
