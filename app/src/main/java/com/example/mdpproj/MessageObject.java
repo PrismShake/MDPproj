@@ -54,7 +54,7 @@ public class MessageObject {
     public void setmTimestamp(long timestamp) {
         mTimestamp = timestamp;
     }
-
+/*
     @Override
     public boolean equals(Object o) {
         boolean same = false;
@@ -68,5 +68,5 @@ public class MessageObject {
     @Override
     public int hashCode() {
         return Objects.hash(mContent, mTimestamp);
-    }
+    }*/
 }

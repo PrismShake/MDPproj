@@ -37,7 +37,7 @@ public class DashBoardActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void openMessagesTwo(View view) {
-        Intent intent = new Intent(view.getContext(), MessageViewHolder.messagePageTwo.class);
+        Intent intent = new Intent(view.getContext(), MessagingActivity.class);
         startActivity(intent);
     }
 
