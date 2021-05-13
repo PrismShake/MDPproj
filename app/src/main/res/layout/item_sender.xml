@@ -19,7 +19,7 @@
             android:layout_height="54dp"
             android:background="@drawable/chat_sender_file"
             android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -29,7 +29,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="50dp"/>
-
 
 
 
