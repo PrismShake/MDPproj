@@ -28,6 +28,16 @@ public class MessagingAdapter extends RecyclerView.Adapter{
         this.context = context;
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        MessageObject messages = messageObjectArrayList.get(position);
+        if(messageObjectArrayList.get(position).getViewType() == 1){
+            return SEND;
+        }else{
+            return RECEIVE;
+        }
+
+    }
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -61,16 +71,6 @@ public class MessagingAdapter extends RecyclerView.Adapter{
         return messageObjectArrayList.size();
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        MessageObject messages = messageObjectArrayList.get(position);
-        if(messageObjectArrayList.get(position).getViewType() == 1){
-            return SEND;
-        }else{
-            return RECEIVE;
-        }
-
-    }
 
     public static class ReceiverViewHolder extends RecyclerView.ViewHolder{
 
