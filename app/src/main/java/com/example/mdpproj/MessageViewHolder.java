@@ -24,22 +24,25 @@ import com.google.firebase.database.FirebaseDatabase;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MessageViewHolder extends RecyclerView.ViewHolder {
-    TextView messageTV;
+    public MessageViewHolder(@NonNull View itemView) {
+        super(itemView);
+    }
+    /*TextView messageTV;
     TextView messengerTV;
     public MessageViewHolder(@NonNull View itemView) {
         super(itemView);
         messageTV = itemView.findViewById(R.id.receiver_message);
-        messengerTV = itemView.findViewById(R.id.messengerTextView);
+        messengerTV = itemView.findViewById(R.id.);
     }
     public void bindMessage(MessageObject messageObject){
         //set the two textviews
         if(messageObject.getmContent() != null){
             messageTV.setText(messageObject.getmContent());
         }
-       // messengerTV.setText(messageObject.getUid());
+       // messengerTV.setText(messageObject.getUid());*/
     }
 
-    public static class messagePageTwo extends AppCompatActivity {
+  /*  public static class messagePageTwo extends AppCompatActivity {
         String username;
         EditText message;
         CircleImageView send;
@@ -121,4 +124,4 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
             adapter.stopListening();
         }
     }
-}
+}*/
