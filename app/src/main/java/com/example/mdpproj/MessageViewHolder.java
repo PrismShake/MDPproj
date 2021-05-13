@@ -28,7 +28,7 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
     TextView messengerTV;
     public MessageViewHolder(@NonNull View itemView) {
         super(itemView);
-        messageTV = itemView.findViewById(R.id.messageTextView);
+        messageTV = itemView.findViewById(R.id.receiver_message);
         messengerTV = itemView.findViewById(R.id.messengerTextView);
     }
     public void bindMessage(MessageObject messageObject){
@@ -36,7 +36,7 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
         if(messageObject.getmContent() != null){
             messageTV.setText(messageObject.getmContent());
         }
-        messengerTV.setText(messageObject.getUid());
+       // messengerTV.setText(messageObject.getUid());
     }
 
     public static class messagePageTwo extends AppCompatActivity {
@@ -74,13 +74,14 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
                 @NonNull
                 @Override
                 public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                    View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_message,parent,false);
+                    View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_sender,parent,false);
                     return new MessageViewHolder(view);
                 }
             };
 
             messageList.setLayoutManager(new LinearLayoutManager(this));
             messageList.setAdapter(adapter);
+
             send.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -97,10 +98,10 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
                     });
                     //create MessageObject object from content
                     if(username!=null){
-                        MessageObject messageObject = new MessageObject(text, user.getUid());
+                        MessageObject messageObject = new MessageObject(text,"fdfsfsf");
                         //save it to Firebase DB
                         mDatabase.child("messages").child(user.getUid()).push().setValue(messageObject);
-                        messageObject.setmContent("");
+                        messageObject.setText("");
                     }
 
                 }
