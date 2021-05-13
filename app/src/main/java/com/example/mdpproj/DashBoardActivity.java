@@ -6,6 +6,8 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class DashBoardActivity extends AppCompatActivity {
 
     @Override
@@ -40,4 +42,11 @@ public class DashBoardActivity extends AppCompatActivity {
     }
 
 
+    public void Logout(View view) {
+        FirebaseAuth.getInstance ( ).signOut ();
+        Intent intent = new Intent(this,MainActivity.class );
+        intent.addFlags ( Intent.FLAG_ACTIVITY_CLEAR_TOP );
+        startActivity ( intent );
+        return;
+    }
 }
