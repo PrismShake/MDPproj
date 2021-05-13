@@ -76,6 +76,9 @@ public class MessagingActivity extends AppCompatActivity {
 
         userName.setText(u);
 
+        if(p !=null && !p.equals("default"))
+            Picasso.get().load(Uri.parse(p)).into(profilePic);
+
        /* messageList.setLayoutManager(new LinearLayoutManager(this));
         messageList.setAdapter(adapter);*/
 
@@ -83,27 +86,7 @@ public class MessagingActivity extends AppCompatActivity {
         userRef = FirebaseDatabase.getInstance().getReference("UserObject").child(SenderUid);
         messageRef =  FirebaseDatabase.getInstance().getReference("Chats");
         chatReference = FirebaseDatabase.getInstance().getReference("Chats").child(SenderRoom).child("messages");
-       /* chatReference.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
-            @Override
-            public void onSuccess(DataSnapshot snapshot) {
-                //messageArrayList.clear();
 
-                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    MessageObject messages =  dataSnapshot.getValue(MessageObject.class);
-                    messageArrayList.add(messages);
-                    Log.i("Messages",messages.toString());
-                    messageAdapter.notifyDataSetChanged();
-                }
-
-            }
-        });*/
-       /*MessageObject n = new MessageObject(1,"Hello",SenderRoom);
-        n.setViewType(1);
-        messageArrayList.add(n);
-        messageAdapter.notifyDataSetChanged();
-        for(int i = 0; i < messageArrayList.size();i++){
-            Log.i("Messages",messageArrayList.get(i).getmContent());
-        }*/
         chatReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
