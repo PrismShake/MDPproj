@@ -209,6 +209,7 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
                 }else{
                     Intent intent = new Intent(context,MessagingActivity.class);
                     intent.putExtra("userName",list.get(position).getUser_name());
+                    intent.putExtra("Uid",list.get(position).getUid());
                     intent.putExtra("ProfilePic",list.get(position).getProfileUrl());
                     context.startActivity(intent);
                 }
