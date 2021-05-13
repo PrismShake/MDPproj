@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -75,18 +76,22 @@ public class MessagingActivity extends AppCompatActivity {
 
         userName.setText(u);
 
-        messageList.setLayoutManager(new LinearLayoutManager(this));
-        messageList.setAdapter(adapter);
+        if(p !=null && !p.equals("default"))
+            Picasso.get().load(Uri.parse(p)).into(profilePic);
+
+       /* messageList.setLayoutManager(new LinearLayoutManager(this));
+        messageList.setAdapter(adapter);*/
 
 
         userRef = FirebaseDatabase.getInstance().getReference("UserObject").child(SenderUid);
         messageRef =  FirebaseDatabase.getInstance().getReference("Chats");
         chatReference = FirebaseDatabase.getInstance().getReference("Chats").child(SenderRoom).child("messages");
+
         chatReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                messageArrayList.clear();
+               messageArrayList.clear();
 
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     MessageObject messages =  dataSnapshot.getValue(MessageObject.class);
@@ -102,7 +107,6 @@ public class MessagingActivity extends AppCompatActivity {
 
             }
         });
-
         userRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
