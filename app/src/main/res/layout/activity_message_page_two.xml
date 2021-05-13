@@ -10,39 +10,43 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <androidx.appcompat.widget.Toolbar
-            android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:layout_height="67dp"
             android:background="@color/ornage">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/displayPic"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="44dp"
                     android:layout_marginLeft="44dp"
+                    android:layout_marginTop="10dp"
                     android:src="@drawable/profile_icon"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0"
-                    android:id="@+id/displayPic"/>
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <View
-                    android:layout_width= "25dp"
-                    android:layout_height="match_parent"/>
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent" />
 
                 <TextView
+                    android:id="@+id/displayName"
                     android:layout_width="143dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="128dp"
                     android:layout_marginRight="128dp"
                     android:text="Username"
                     android:textSize="30dp"
-                    android:id="@+id/displayName"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
