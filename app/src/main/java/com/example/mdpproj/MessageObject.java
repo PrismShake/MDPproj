@@ -10,15 +10,33 @@ import java.util.Objects;
 public class MessageObject {
     private String mContent;
     private long mTimestamp;
-
+    private String uid;
+    private int viewType;
     //Needed for Firebase
     public MessageObject() {
 
     }
 
-    public MessageObject(String message) {
+    public MessageObject(int viewType, String message,String u) {
         mContent = message;
+        uid = u;
         mTimestamp = new Date().getTime();
+    }
+
+    public int getViewType() {
+        return viewType;
+    }
+
+    public void setViewType(int viewType) {
+        this.viewType = viewType;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getmContent() {
