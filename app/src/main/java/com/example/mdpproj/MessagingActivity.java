@@ -79,9 +79,6 @@ public class MessagingActivity extends AppCompatActivity {
         if(p !=null && !p.equals("default"))
             Picasso.get().load(Uri.parse(p)).into(profilePic);
 
-       /* messageList.setLayoutManager(new LinearLayoutManager(this));
-        messageList.setAdapter(adapter);*/
-
 
         userRef = FirebaseDatabase.getInstance().getReference("UserObject").child(SenderUid);
         messageRef =  FirebaseDatabase.getInstance().getReference("Chats");

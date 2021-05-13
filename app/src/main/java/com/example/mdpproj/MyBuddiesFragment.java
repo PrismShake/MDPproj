@@ -76,7 +76,6 @@ public class MyBuddiesFragment extends Fragment implements BuddyAdapter.OnClick 
     }
 
     private void listenForData() {
-        results.add(new BuddyObject("Henry", "18", "default", "eafesfewfewf"));
         String user_uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         ArrayList<String> buddies = getBuddies();
         DatabaseReference usersDb = FirebaseDatabase.getInstance().getReference("UserObject");

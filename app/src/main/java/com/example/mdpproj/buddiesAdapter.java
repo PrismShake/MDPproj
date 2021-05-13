@@ -15,7 +15,7 @@ public class buddiesAdapter extends RecyclerView.Adapter<buddiesAdapter.MyViewHo
         Context context;
 
         ArrayList<UserObject> list;
-        private OnClick onclick;
+        private final OnClick onclick;
 
         public buddiesAdapter(Context context, ArrayList<UserObject> list, OnClick onclick) {
             this.context = context;

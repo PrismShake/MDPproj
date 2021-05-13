@@ -74,7 +74,6 @@ public class FindBuddiesFragment extends Fragment implements BuddyAdapter.OnClic
     }
 
     private void listenForData() {
-        results.add(new BuddyObject("Henry","18","default","eafesfewfewf"));
         DatabaseReference usersDb = FirebaseDatabase.getInstance().getReference("UserObject");
        // Query query = usersDb.orderByChild("userName").startAt(mInput.getText().toString()).endAt(mInput.getText().toString() + "\uf8ff");
         usersDb.addValueEventListener(new ValueEventListener() {
