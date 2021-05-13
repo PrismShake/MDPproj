@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -22,6 +23,11 @@ public class MessagingAdapter extends RecyclerView.Adapter{
     ArrayList<MessageObject> messageObjectArrayList;
     int SEND = 1, RECEIVE = 2;
 
+    public MessagingAdapter(ArrayList<MessageObject> messageList, Context context){
+        this.messageObjectArrayList = messageList;
+        this.context = context;
+    }
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -29,7 +35,7 @@ public class MessagingAdapter extends RecyclerView.Adapter{
             View v = LayoutInflater.from(context).inflate(R.layout.item_sender, parent, false);
             return new SenderViewHolder(v);
         }else{
-            View v = LayoutInflater.from(context).inflate(R.layout.item_sender, parent, false);
+            View v = LayoutInflater.from(context).inflate(R.layout.item_receiver, parent, false);
             return new ReceiverViewHolder(v);
         }
 
@@ -58,7 +64,7 @@ public class MessagingAdapter extends RecyclerView.Adapter{
     @Override
     public int getItemViewType(int position) {
         MessageObject messages = messageObjectArrayList.get(position);
-        if(FirebaseAuth.getInstance().getCurrentUser().getUid().equals(messages.getUid())){
+        if(messageObjectArrayList.get(position).getViewType() == 1){
             return SEND;
         }else{
             return RECEIVE;
