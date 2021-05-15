@@ -54,18 +54,14 @@ public class BuddyObject {
      */
     @Override
     public boolean equals(Object o) {
-        boolean same = false;
-        if(o != null && o instanceof BuddyObject){
-            same = this.uid == ((BuddyObject) o).uid;
-        }
-        return same;
+        return o instanceof BuddyObject && uid.equals(((BuddyObject) o).uid);
     }
 
     @Override
     public int hashCode() {
         int result = 17;
         result = 31 * result + (this.uid == null ? 0: this.uid.hashCode());
-        return super.hashCode();
+        return result;
     }
 }
 

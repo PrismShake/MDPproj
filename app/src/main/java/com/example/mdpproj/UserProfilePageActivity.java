@@ -116,47 +116,6 @@ public class UserProfilePageActivity extends AppCompatActivity {
                 }
             }
         });
-/*
-        //listening to all changes under particular node
-        mRoot.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                //I go through each user in the node
-                for(DataSnapshot user: snapshot.getChildren()){
-                    //Log.i("Snapshot",user.getValue().toString());
-
-                    UserObject u = user.getValue(UserObject.class);
-                    //I use a getter method from the UserObject.class
-                    String Uid = u.getmUid();
-                    Log.i("Snapshot",Uid);
-                    //if the user in the User Node is the current user I take their info and update the profile
-                    if(Uid.equals(current_user_id)) {  //
-                        String user_name = u.getUserName();
-                        uname.setText(user_name);
-                        fullName.setText(u.getFull_name());
-                        age.setText(u.getAge());
-                        pronouns.setText(u.getPronouns());
-                        city.setText(u.getCity());
-                        state.setText(u.getState());
-                        workout.setText(u.getWorkout());
-                        motivation.setText(u.getMotivation());
-                        gym.setText(u.getGym());
-                        //only be used loading local images
-                        if((u.getProfilepic()!=null)&&(!u.getProfilepic().isEmpty()))
-                           Picasso.get().load(u.getProfilepic()).into(profileImageView);
-                        //StorageReference s  = storage.getReference().child("images/" + current_user_id + ".jpg");
-                       // profileImageView.setImageURI(Uri.parse(s.getName()));
-
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        */
 
     }
 

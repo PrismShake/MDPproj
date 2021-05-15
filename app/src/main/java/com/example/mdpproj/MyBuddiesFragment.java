@@ -59,16 +59,7 @@ public class MyBuddiesFragment extends Fragment implements BuddyAdapter.OnClick 
         mAdapter = new BuddyAdapter(getContext(), getDataSet(), this::OnClick, 1);
         mRecyclerView.setAdapter(mAdapter);
 
-        mInput = getActivity().findViewById(R.id.input);
-        Button mSearch = view.findViewById(R.id.search);
-        mSearch.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                clear();
-                listenForData();
-            }
-        });
+        listenForData();
 
 
         return view;

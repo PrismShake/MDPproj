@@ -26,7 +26,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -37,7 +39,8 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
     List<BuddyObject> list;
     int typeOfDisplay;
     private OnClick onclick;
-    ArrayList<String> buddies;
+    //ArrayList<String> buddies;
+    Set<String> buddies;
     String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
     //passes context aka the activity, the list of buddies to display, onclick, typeOfDisplay
@@ -55,7 +58,8 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
         this.typeOfDisplay = typeOfDisplay;
 
         //get buddies of current user from Firebase
-        buddies = new ArrayList<String>();
+        //buddies = new ArrayList<String>();
+        buddies = new HashSet<String>();
         DatabaseReference buddiesList = FirebaseDatabase.getInstance().getReference("UserObject").child(userId).child("Buddies");
         buddiesList.addValueEventListener(new ValueEventListener() {
             @Override
@@ -175,7 +179,7 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
                         holder.match_with_buddy.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFA500")));
                         FirebaseDatabase.getInstance().getReference()
                                 .child("UserObject").child(userId).child("Buddies").child(list.get(position).getUid()).setValue(true);
-                        notifyDataSetChanged();
+                        //notifyDataSetChanged();
                         return;
 
                     } else {
@@ -197,7 +201,7 @@ public class BuddyAdapter extends RecyclerView.Adapter<BuddyAdapter.MyViewHolder
                     //remove buddy from firebase
                     FirebaseDatabase.getInstance().getReference()
                             .child("UserObject").child(userId).child("Buddies").child(list.get(position).getUid()).removeValue();
-                    notifyDataSetChanged();
+                   // notifyDataSetChanged();
                     //remove buddy from recyclerview
                     list.remove(position);
                     notifyItemRemoved(position);
